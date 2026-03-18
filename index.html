@@ -4,11 +4,252 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/pixel.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>sie-Hanamura</title>
+    <title>Siera Hallig | UX/UI Designer and Web Developer Portfolio</title>
+    <meta
+      name="description"
+      content="Portfolio of Siera Hallig (sie-hanamura), a UX/UI Designer and Web Developer showcasing design case studies, web projects, and development work."
+    />
+    <meta
+      name="keywords"
+      content="Siera Hallig, sie-hanamura, UX UI Designer, Web Developer, Portfolio, React, Three.js"
+    />
+    <meta name="author" content="Siera Hallig" />
+    <link rel="canonical" href="https://sie-hanamura.vercel.app/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Siera Hallig Portfolio" />
+    <meta property="og:title" content="Siera Hallig | UX/UI Designer and Web Developer Portfolio" />
+    <meta
+      property="og:description"
+      content="Explore UX/UI designs, interactive interfaces, and development projects by Siera Hallig."
+    />
+    <meta property="og:url" content="https://sie-hanamura.vercel.app/" />
+    <meta property="og:image" content="https://sie-hanamura.vercel.app/miku.png" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Siera Hallig | UX/UI Designer and Web Developer Portfolio" />
+    <meta
+      name="twitter:description"
+      content="Explore UX/UI designs, interactive interfaces, and development projects by Siera Hallig."
+    />
+    <meta name="twitter:image" content="https://sie-hanamura.vercel.app/miku.png" />
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Siera Hallig",
+        "alternateName": "sie-hanamura",
+        "jobTitle": "UX/UI Designer and Web Developer",
+        "url": "https://sie-hanamura.vercel.app/",
+        "sameAs": [
+          "https://github.com/sie-hanamura",
+          "https://www.linkedin.com/in/hallig-siera/",
+          "https://www.instagram.com/friera.chr/",
+          "https://www.behance.net/sie-hanamura"
+        ]
+      }
+    </script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "Siera Hallig Portfolio",
+        "url": "https://sie-hanamura.vercel.app/"
+      }
+    </script>
     <script type="module" crossorigin src="/assets/index-DZeOwcvB.js"></script>
     <link rel="stylesheet" crossorigin href="/assets/index-Di1ofdRY.css">
+    <style>
+      :root {
+        color-scheme: light;
+      }
+
+      .skip-link {
+        position: absolute;
+        left: 0.75rem;
+        top: -3rem;
+        z-index: 10000;
+        padding: 0.625rem 0.875rem;
+        border: 2px solid #1f2937;
+        background: #ffffff;
+        color: #111827;
+        border-radius: 0.375rem;
+        text-decoration: none;
+        transition: top 0.15s ease;
+      }
+
+      .skip-link:focus {
+        top: 0.75rem;
+      }
+
+      a:focus-visible,
+      button:focus-visible,
+      [role="button"]:focus-visible {
+        outline: 3px solid #0f766e;
+        outline-offset: 3px;
+      }
+
+      .portfolioHeadText {
+        font-size: 7rem !important;
+      }
+
+      .rm-fallback-image {
+        width: min(420px, 80vw);
+        height: auto;
+        border-radius: 0.75rem;
+        border: 2px solid #4b5563;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+    </style>
   </head>
   <body>
+    <a class="skip-link" href="#home">Skip to main content</a>
     <div id="root"></div>
+    <script>
+      (function () {
+        function ensureButtonBehavior(el) {
+          if (!el || el.dataset.a11yPatched === "1") {
+            return;
+          }
+
+          el.dataset.a11yPatched = "1";
+          if (!el.hasAttribute("tabindex")) {
+            el.setAttribute("tabindex", "0");
+          }
+          el.setAttribute("role", "button");
+
+          el.addEventListener("keydown", function (event) {
+            if (event.key === "Enter" || event.key === " ") {
+              event.preventDefault();
+              el.click();
+            }
+          });
+        }
+
+        function setAriaCurrentFromHash() {
+          var links = document.querySelectorAll('nav a[href^="#"]');
+          if (!links.length) {
+            return;
+          }
+
+          var hash = window.location.hash || "#home";
+          links.forEach(function (link) {
+            if (link.getAttribute("href") === hash) {
+              link.setAttribute("aria-current", "page");
+            } else {
+              link.removeAttribute("aria-current");
+            }
+          });
+        }
+
+        function patchInteractiveElements() {
+          var scrollDownAnchor = document.querySelector('a img[alt="Scroll Down"]');
+          if (scrollDownAnchor && scrollDownAnchor.parentElement && scrollDownAnchor.parentElement.tagName === "A") {
+            var scrollLink = scrollDownAnchor.parentElement;
+            if (!scrollLink.getAttribute("href")) {
+              scrollLink.setAttribute("href", "#work");
+            }
+            scrollLink.setAttribute("aria-label", "Scroll to portfolio section");
+          }
+
+          var clickableCards = Array.from(document.querySelectorAll("div.group.cursor-pointer"));
+          clickableCards.forEach(function (card) {
+            if (card.querySelector("p") && card.textContent.indexOf("Click to view more") !== -1) {
+              ensureButtonBehavior(card);
+              card.setAttribute("aria-label", "Open project details");
+            }
+          });
+
+          setAriaCurrentFromHash();
+        }
+
+        function mountCanvasFallback(container, reasonText) {
+          if (!container || container.dataset.fallbackMounted === "1") {
+            return;
+          }
+
+          container.dataset.fallbackMounted = "1";
+          container.innerHTML = "";
+
+          var fallbackWrap = document.createElement("div");
+          fallbackWrap.setAttribute(
+            "style",
+            "display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:1rem;"
+          );
+
+          var fallbackImg = document.createElement("img");
+          fallbackImg.className = "rm-fallback-image";
+          fallbackImg.src = "/miku.png";
+          fallbackImg.alt = "Hero visual fallback image";
+
+          var fallbackText = document.createElement("p");
+          fallbackText.textContent = reasonText;
+          fallbackText.setAttribute(
+            "style",
+            "font-size:0.875rem;color:#374151;text-align:center;max-width:32rem;"
+          );
+
+          fallbackWrap.appendChild(fallbackImg);
+          fallbackWrap.appendChild(fallbackText);
+          container.appendChild(fallbackWrap);
+        }
+
+        function applyReducedMotionAndFailureFallback() {
+          var prefersReducedMotion =
+            window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+          var canvasContainer = document.querySelector(".canvasContainer");
+
+          if (!canvasContainer) {
+            return;
+          }
+
+          if (prefersReducedMotion) {
+            mountCanvasFallback(
+              canvasContainer,
+              "3D animation is reduced to respect your motion preferences."
+            );
+            return;
+          }
+
+          window.setTimeout(function () {
+            var hasCanvas = !!canvasContainer.querySelector("canvas");
+            if (!hasCanvas) {
+              mountCanvasFallback(
+                canvasContainer,
+                "The 3D model could not be loaded right now. Showing a fallback visual instead."
+              );
+            }
+          }, 7000);
+        }
+
+        var observer = new MutationObserver(function () {
+          patchInteractiveElements();
+        });
+
+        observer.observe(document.documentElement, {
+          subtree: true,
+          childList: true,
+          attributes: false,
+        });
+
+        window.addEventListener("hashchange", setAriaCurrentFromHash);
+        window.addEventListener("load", function () {
+          patchInteractiveElements();
+          applyReducedMotionAndFailureFallback();
+        });
+      })();
+    </script>
   </body>
 </html>
