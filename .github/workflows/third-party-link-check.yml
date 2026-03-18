@@ -1,0 +1,41 @@
+name: Third-Party Link Check
+
+on:
+  schedule:
+    - cron: "0 3 1 * *"
+  workflow_dispatch:
+
+jobs:
+  validate-external-links:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Validate known external links
+        run: |
+          urls=(
+            "https://github.com/sie-hanamura"
+            "https://www.linkedin.com/in/hallig-siera/"
+            "https://www.instagram.com/friera.chr/"
+            "https://www.behance.net/sie-hanamura"
+            "https://github.com/sie-hanamura/MINHS-School-Grading-System"
+            "https://github.com/Shibarashii/automated-barangay-clearance-system"
+            "https://github.com/sie-hanamura/Task-Manager-App"
+            "https://github.com/sie-hanamura/CSEL302_Hallig"
+            "https://github.com/sie-hanamura/portfolio-website"
+          )
+
+          failed=0
+          for url in "${urls[@]}"; do
+            code=$(curl -L -o /dev/null -s -w "%{http_code}" "$url")
+            echo "$url -> $code"
+            if [ "$code" -ge 400 ] || [ "$code" -eq 000 ]; then
+              failed=1
+            fi
+          done
+
+          if [ "$failed" -ne 0 ]; then
+            echo "One or more external links failed validation."
+            exit 1
+          fi

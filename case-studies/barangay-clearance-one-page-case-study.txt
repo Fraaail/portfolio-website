@@ -1,0 +1,30 @@
+AUTOMATED BARANGAY CLEARANCE SYSTEM
+One-Page Case Study
+
+Problem:
+Manual transcription of resident request data caused processing bottlenecks
+and increased clerical mistakes.
+
+Role:
+Systems Developer.
+
+Process:
+- Connected Google Form inputs to the application workflow.
+- Automated PDF clearance generation.
+- Standardized print-ready document output.
+
+Constraints:
+- Needed format compliance for official document templates.
+- Needed resilient behavior for unstable local connectivity.
+
+Outcome:
+- Reduced duplicate encoding tasks.
+- Improved request processing consistency for recurring request flows.
+- Internal team testing indicated ~50% less repeated manual entry effort.
+
+What I Learned:
+Automation is most effective when it supports familiar staff workflows
+instead of forcing abrupt process changes.
+
+Author: Siera Hallig
+Date: 2026-03-18

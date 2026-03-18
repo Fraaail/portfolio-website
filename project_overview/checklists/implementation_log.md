@@ -36,10 +36,44 @@ Always implement top-to-bottom in P0, then P1, then P2.
 28. P1 UX and conversion improvements: injected consistent primary CTA links (`Let's Work Together` to `#contact`) across major sections.
 29. P1 UX and conversion improvements: injected concise top-fold value proposition copy in the home section.
 30. P1 UX and conversion improvements: added visible top-fold availability statement for full-time/freelance opportunities.
+31. P1 UX and conversion improvements: added downloadable local resume mirror (`/resume-mirror.txt`) as backup beside external resume link.
+32. P1 Case-study quality: added mini case-study structure to featured project cards (problem, role, process, constraints, outcomes).
+33. P1 Case-study quality: added timeline and responsibility summaries in project card enhancements.
+34. P1 Case-study quality: added project status tags (Live/Academic/Concept) for featured projects.
+35. P1 Case-study quality: added deeper writeup links to project repositories from enhanced case-study blocks.
+36. P1 Case-study quality: added what-I-learned reflections and measurable outcomes for strongest projects.
+37. P1 Accessibility expansion: retained and verified reduced-motion behavior for heavy/looping interactions.
+38. P1 Accessibility expansion: added heading hierarchy guard to ensure a top-level `h1` exists.
+39. P1 Accessibility expansion: improved image alt text quality and treated decorative overlay icons as hidden from screen readers.
+40. P1 Accessibility expansion: hardened contrast for secondary/body gray text and existing focus/hover states.
+41. P1 Accessibility expansion: ensured custom cursor never intercepts pointer interactions and is disabled on coarse pointers.
+42. P1 Reliability and analytics: implemented analytics funnel events for project, resume, and contact interactions.
+43. P1 Reliability and analytics: added graceful media/network error handling with UI fallback messaging.
+44. P1 Reliability and analytics: added loading skeleton behavior for heavy section imagery until load completes.
+45. P1 Reliability and analytics: improved hash navigation behavior to reduce noisy history updates and preserve smooth scrolling.
+46. P2 Content authority and growth: added insight/design note content and surfaced it in an in-page Insights section.
+47. P2 Content authority and growth: added updates/changelog artifacts and linked them from the site.
+48. P2 Content authority and growth: generated downloadable one-page case-study PDFs for featured projects.
+49. P2 Content authority and growth: documented and linked an i18n readiness plan.
+50. P2 Visual system and code quality: introduced global design tokens for color, spacing, typography, radius, and line-height.
+51. P2 Visual system and code quality: reduced duplicated injected UI style patterns by consolidating repeated pill/button treatments.
+52. P2 Visual system and code quality: standardized typography and spacing rhythm across global headings/body text.
+53. P2 Maintainability and workflow: documented source/build output separation policy in `docs/repo-structure.md`.
+54. P2 Maintainability and workflow: updated README with setup, local preview, development, build, and deploy guidance.
+55. P2 Maintainability and workflow: added `CONTRIBUTING.md` with chronological workflow and quality gates.
+56. P2 Maintainability and workflow: added automated CI build checks in `.github/workflows/build-check.yml` for critical files, active hashed entry artifacts, and roadmap doc presence.
+57. P2 Maintainability and workflow: added dependency update and audit policy in `docs/dependency-audit-policy.md` and linked governance references in README.
+58. P2 Security and privacy: added portfolio privacy disclosure artifact in `docs/privacy-note.md` and rendered an in-page analytics privacy note in contact area.
+59. P2 Security and privacy: added periodic third-party link validation policy and scheduled CI workflow in `.github/workflows/third-party-link-check.yml`.
+60. P2 Security and privacy: removed avoidable debug logging points from the active production bundle `assets/index-DZeOwcvB.js` via exact-string replacements.
+61. P2 Full-domain alignment: reconciled completed implementation statuses in `docs/checklist.md` full-domain sections for accessibility, performance, UX, content quality, and visual system tasks.
+62. P2 Visual system and code quality: added style linting/formatting workflow for maintained files via `.github/workflows/style-check.yml`, `.prettierrc.json`, `.prettierignore`, `.markdownlint.json`, and `docs/style-linting-workflow.md`.
+63. UX content adjustment: removed injected `Let's Work Together` section CTA buttons and removed injected Insights section from `index.html` per current direction.
+64. P2 Visual system and code quality: added visual regression checks for key sections via `.github/workflows/visual-regression.yml`, `visual-regression/check.js`, and `docs/visual-regression-workflow.md`.
 
 ## In progress
-31. P1 UX and conversion improvements:
-- Add downloadable resume mirror (backup to external drive link).
+65. Full-domain checklist continuation:
+- SEO and discoverability: add favicon variants + manifest.
 
 ## Verification checklist for each implemented item
 - [ ] No syntax errors.
@@ -49,4 +83,4 @@ Always implement top-to-bottom in P0, then P1, then P2.
 - [ ] Checklist status updated in docs/checklist.md.
 
 ## Next immediate implementation target
-P1 item #31 onward in strict order (remaining UX and conversion improvements).
+Item #65 onward in strict order (remaining full-domain checklist tasks).

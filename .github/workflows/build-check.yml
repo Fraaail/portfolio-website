@@ -1,0 +1,41 @@
+name: Build Output Checks
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  verify-static-build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Verify critical files exist
+        run: |
+          test -f index.html
+          test -f README.md
+          test -f docs/checklist.md
+          test -f project_overview/checklists/implementation_log.md
+
+      - name: Verify single active hashed entry artifacts
+        run: |
+          js_count=$(find assets -maxdepth 1 -type f -name 'index-*.js' | wc -l)
+          css_count=$(find assets -maxdepth 1 -type f -name 'index-*.css' | wc -l)
+          echo "js_count=${js_count}"
+          echo "css_count=${css_count}"
+          test "$js_count" -eq 1
+          test "$css_count" -eq 1
+
+      - name: Verify index references active entry assets
+        run: |
+          js_entry=$(basename "$(find assets -maxdepth 1 -type f -name 'index-*.js')")
+          css_entry=$(basename "$(find assets -maxdepth 1 -type f -name 'index-*.css')")
+          grep -q "/assets/${js_entry}" index.html
+          grep -q "/assets/${css_entry}" index.html
+
+      - name: Verify roadmap tracking docs are present
+        run: |
+          grep -q "## P0 checklist" docs/checklist.md
+          grep -q "## Sequence rule" project_overview/checklists/implementation_log.md

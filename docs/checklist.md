@@ -115,80 +115,80 @@ Acceptance criteria:
 - [x] Add consistent primary CTA placement across key sections.
 - [x] Add concise top-fold value proposition (role, specialty, business/user impact).
 - [x] Add clear availability statement (full-time/freelance/internship).
-- [ ] Add downloadable resume mirror (backup to external drive link).
+- [x] Add downloadable resume mirror (backup to external drive link).
 
 Acceptance criteria:
 - [ ] Users can identify role and next step within first scroll.
 - [ ] CTA path is visible in multiple sections.
 
 ### Case-study quality
-- [ ] Upgrade each featured project with mini case-study structure:
-  - [ ] Problem
-  - [ ] Role
-  - [ ] Process
-  - [ ] Constraints
-  - [ ] Outcome/metrics
-- [ ] Add timeline + responsibilities for team projects.
-- [ ] Add project status tags (live, archived, concept, academic).
-- [ ] Add links to deeper docs/writeups for top projects.
-- [ ] Add what-I-learned reflection per project.
+- [x] Upgrade each featured project with mini case-study structure:
+  - [x] Problem
+  - [x] Role
+  - [x] Process
+  - [x] Constraints
+  - [x] Outcome/metrics
+- [x] Add timeline + responsibilities for team projects.
+- [x] Add project status tags (live, archived, concept, academic).
+- [x] Add links to deeper docs/writeups for top projects.
+- [x] Add what-I-learned reflection per project.
 
 Acceptance criteria:
-- [ ] At least 2 strongest projects include measurable outcomes.
+- [x] At least 2 strongest projects include measurable outcomes.
 - [ ] Recruiter can assess impact quickly from each card/detail view.
 
 ### Accessibility expansion
-- [ ] Add prefers-reduced-motion behavior for looping and heavy animations.
-- [ ] Verify heading hierarchy (single h1 and logical h2/h3 order).
-- [ ] Improve alt text quality for meaningful images.
-- [ ] Verify color contrast across default/hover/focus states.
-- [ ] Ensure custom cursor does not interfere with pointer usability.
+- [x] Add prefers-reduced-motion behavior for looping and heavy animations.
+- [x] Verify heading hierarchy (single h1 and logical h2/h3 order).
+- [x] Improve alt text quality for meaningful images.
+- [x] Verify color contrast across default/hover/focus states.
+- [x] Ensure custom cursor does not interfere with pointer usability.
 
 Acceptance criteria:
 - [ ] Keyboard-only journey can complete full site exploration.
 - [ ] No major contrast violations remain.
 
 ### Reliability and analytics
-- [ ] Add analytics funnel events for:
-  - [ ] Project card click
-  - [ ] Resume click
-  - [ ] Contact actions
-- [ ] Add graceful error state for failed media/network fetches.
-- [ ] Add loading skeletons for heavy sections where needed.
-- [ ] Audit smooth-scroll + history behavior to avoid noisy URL state.
+- [x] Add analytics funnel events for:
+  - [x] Project card click
+  - [x] Resume click
+  - [x] Contact actions
+- [x] Add graceful error state for failed media/network fetches.
+- [x] Add loading skeletons for heavy sections where needed.
+- [x] Audit smooth-scroll + history behavior to avoid noisy URL state.
 
 Acceptance criteria:
-- [ ] Basic conversion funnel can be measured.
-- [ ] Failure states do not break user journey.
+- [x] Basic conversion funnel can be measured.
+- [x] Failure states do not break user journey.
 
 ---
 
 ## P2 checklist - Polish and long-term quality
 
 ### Content authority and growth
-- [ ] Add blog/insight snippets or design notes.
-- [ ] Add updates/changelog section for recent improvements.
-- [ ] Create downloadable one-page case-study PDF(s).
-- [ ] Add i18n readiness plan if targeting broader audience.
+- [x] Add blog/insight snippets or design notes.
+- [x] Add updates/changelog section for recent improvements.
+- [x] Create downloadable one-page case-study PDF(s).
+- [x] Add i18n readiness plan if targeting broader audience.
 
 ### Visual system and code quality
-- [ ] Introduce tokenized design system for color/spacing/type.
-- [ ] Reduce duplicated style patterns/utilities.
-- [ ] Add style linting and formatting workflow (if source available).
-- [ ] Standardize typography scale and spacing rhythm globally.
-- [ ] Add visual regression checks for key pages/components.
+- [x] Introduce tokenized design system for color/spacing/type.
+- [x] Reduce duplicated style patterns/utilities.
+- [x] Add style linting and formatting workflow (if source available).
+- [x] Standardize typography scale and spacing rhythm globally.
+- [x] Add visual regression checks for key pages/components.
 
 ### Maintainability and workflow
-- [ ] Separate source and build output clearly in repo structure.
-- [ ] Update README with setup/dev/build/deploy sections.
-- [ ] Add contribution guidelines (even for solo future-proofing).
-- [ ] Add automated build checks in CI.
-- [ ] Add dependency update and audit policy.
+- [x] Separate source and build output clearly in repo structure.
+- [x] Update README with setup/dev/build/deploy sections.
+- [x] Add contribution guidelines (even for solo future-proofing).
+- [x] Add automated build checks in CI.
+- [x] Add dependency update and audit policy.
 
 ### Security and privacy
-- [ ] Add privacy note if analytics are enabled.
-- [ ] Validate third-party links/resources periodically.
-- [ ] Remove avoidable debug logs from production bundles.
+- [x] Add privacy note if analytics are enabled.
+- [x] Validate third-party links/resources periodically.
+- [x] Remove avoidable debug logs from production bundles.
 
 ---
 
@@ -208,56 +208,56 @@ Acceptance criteria:
 - [x] Semantic interactive elements.
 - [ ] Accessible labels + visible focus.
 - [x] Skip-to-content.
-- [ ] Prefers-reduced-motion handling.
+- [x] Prefers-reduced-motion handling.
 - [x] Modal focus trap/Escape/focus restore.
-- [ ] Heading hierarchy audit.
-- [ ] Descriptive alt text.
-- [ ] Contrast verification.
-- [ ] Cursor behavior compatibility.
+- [x] Heading hierarchy audit.
+- [x] Descriptive alt text.
+- [x] Contrast verification.
+- [x] Cursor behavior compatibility.
 - [x] aria-current for nav state.
 
 ### 3) Performance and loading
 - [x] Disable preserveDrawingBuffer if unnecessary.
 - [x] DPR optimization strategy.
 - [ ] Lazy-load 3D scene.
-- [ ] Static fallback for low-end/reduced-motion users.
+- [x] Static fallback for low-end/reduced-motion users.
 - [ ] Defer non-critical scripts/features.
-- [ ] Compress/resize large gallery images.
+- [x] Compress/resize large gallery images.
 - [ ] Modern formats + responsive media delivery.
-- [ ] Remove stale compiled assets.
+- [x] Remove stale compiled assets.
 - [ ] Set performance budgets (LCP/CLS/INP).
 - [ ] Run Lighthouse regularly.
 - [ ] Configure caching headers for immutable assets.
 - [ ] Consider code splitting where feasible.
 
 ### 4) UX and information architecture
-- [ ] Include all major sections in nav.
-- [ ] Add mini case-study blocks per featured project.
-- [ ] Add consistent CTA placement.
-- [ ] Add concise top-fold value proposition.
+- [x] Include all major sections in nav.
+- [x] Add mini case-study blocks per featured project.
+- [x] Add consistent CTA placement.
+- [x] Add concise top-fold value proposition.
 - [ ] Add testimonials if available.
 - [ ] Improve filtering/search (if portfolio grows).
-- [ ] Add project status tags.
-- [ ] Clarify role/timeline for team projects.
-- [ ] Add resume mirror link.
-- [ ] Add open-to-work statement.
+- [x] Add project status tags.
+- [x] Clarify role/timeline for team projects.
+- [x] Add resume mirror link.
+- [x] Add open-to-work statement.
 
 ### 5) Content quality and credibility
 - [ ] Add proficiency/confidence indicators.
 - [ ] Mark most-used production tools.
 - [ ] Replace generic lines with concrete achievements.
-- [ ] Add measurable outcomes.
-- [ ] Add deep links to docs/case studies.
-- [ ] Add lessons learned per project.
-- [ ] Validate all external links.
+- [x] Add measurable outcomes.
+- [x] Add deep links to docs/case studies.
+- [x] Add lessons learned per project.
+- [x] Validate all external links.
 
 ### 6) Visual system and CSS quality
-- [ ] Fix invalid font-size declaration.
-- [ ] Align color-scheme with actual theme.
-- [ ] Add design tokens.
-- [ ] Reduce duplicate declarations.
-- [ ] Add linting/formatting pipeline.
-- [ ] Standardize heading scale/spacing.
+- [x] Fix invalid font-size declaration.
+- [x] Align color-scheme with actual theme.
+- [x] Add design tokens.
+- [x] Reduce duplicate declarations.
+- [x] Add linting/formatting pipeline.
+- [x] Standardize heading scale/spacing.
 
 ### 7) Interaction and robustness
 - [ ] Semantic controls for click-only elements.

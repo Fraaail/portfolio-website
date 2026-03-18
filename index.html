@@ -64,6 +64,44 @@
     <style>
       :root {
         color-scheme: light;
+        --color-brand: #0f766e;
+        --color-brand-dark: #115e59;
+        --color-text-strong: #0f172a;
+        --color-text-body: #334155;
+        --color-surface: #ffffff;
+        --color-surface-soft: #f8fafc;
+        --color-border: #cbd5e1;
+        --radius-sm: 0.5rem;
+        --radius-pill: 999px;
+        --space-1: 0.25rem;
+        --space-2: 0.5rem;
+        --space-3: 0.75rem;
+        --space-4: 1rem;
+        --space-5: 1.25rem;
+        --type-xs: 0.75rem;
+        --type-sm: 0.875rem;
+        --type-md: 1rem;
+        --type-lg: 1.125rem;
+        --line-tight: 1.2;
+        --line-body: 1.5;
+      }
+
+      body {
+        color: var(--color-text-body);
+        line-height: var(--line-body);
+      }
+
+      h1,
+      h2,
+      h3,
+      h4 {
+        color: var(--color-text-strong);
+        line-height: var(--line-tight);
+        margin-top: 0;
+      }
+
+      p {
+        line-height: var(--line-body);
       }
 
       .skip-link {
@@ -71,11 +109,11 @@
         left: 0.75rem;
         top: -3rem;
         z-index: 10000;
-        padding: 0.625rem 0.875rem;
-        border: 2px solid #1f2937;
-        background: #ffffff;
-        color: #111827;
-        border-radius: 0.375rem;
+        padding: var(--space-2) var(--space-3);
+        border: 2px solid var(--color-text-strong);
+        background: var(--color-surface);
+        color: var(--color-text-strong);
+        border-radius: var(--radius-sm);
         text-decoration: none;
         transition: top 0.15s ease;
       }
@@ -88,7 +126,7 @@
       button:focus-visible,
       [role="button"]:focus-visible,
       [tabindex]:focus-visible {
-        outline: 3px solid #0f766e;
+        outline: 3px solid var(--color-brand);
         outline-offset: 3px;
       }
 
@@ -104,35 +142,6 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
       }
 
-      .section-cta-wrap {
-        margin-top: 1rem;
-        width: 100%;
-        display: flex;
-        justify-content: center;
-      }
-
-      .section-cta {
-        display: inline-flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid #1f2937;
-        border-radius: 999px;
-        padding: 0.6rem 1.1rem;
-        background: #ffffff;
-        color: #0f172a;
-        font-size: 0.9rem;
-        font-weight: 600;
-        line-height: 1;
-        text-decoration: none;
-        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
-      }
-
-      .section-cta:hover {
-        background: #0f766e;
-        color: #ffffff;
-        transform: translateY(-1px);
-      }
-
       .topfold-message {
         margin-top: 0.85rem;
         display: flex;
@@ -143,7 +152,7 @@
 
       .topfold-value-prop {
         margin: 0;
-        color: #334155;
+        color: var(--color-text-body);
         font-size: 0.95rem;
         line-height: 1.4;
         max-width: 44rem;
@@ -151,15 +160,157 @@
 
       .availability-chip {
         display: inline-block;
-        border: 1px solid #0f766e;
-        border-radius: 999px;
+        border: 1px solid var(--color-brand);
+        border-radius: var(--radius-pill);
         padding: 0.3rem 0.7rem;
         background: #ecfeff;
-        color: #115e59;
+        color: var(--color-brand-dark);
         font-size: 0.78rem;
         font-weight: 700;
         letter-spacing: 0.02em;
         text-transform: uppercase;
+      }
+
+      .resume-mirror-link {
+        margin-left: 0.65rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #475569;
+        border-radius: var(--radius-pill);
+        padding: 0.5rem 0.95rem;
+        background: var(--color-surface);
+        color: #334155;
+        font-size: 0.82rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease;
+      }
+
+      .resume-mirror-link:hover {
+        background: #334155;
+        color: #ffffff;
+      }
+
+      .project-status-tag {
+        display: inline-block;
+        margin-top: 0.35rem;
+        border-radius: 999px;
+        padding: 0.22rem 0.6rem;
+        font-size: 0.68rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
+      .project-status-live {
+        background: #dcfce7;
+        color: #166534;
+      }
+
+      .project-status-academic {
+        background: #e0e7ff;
+        color: #3730a3;
+      }
+
+      .project-status-concept {
+        background: #fef3c7;
+        color: #92400e;
+      }
+
+      .project-case-study {
+        margin-top: 0.75rem;
+        border-top: 1px solid #d1d5db;
+        padding-top: 0.65rem;
+      }
+
+      .project-case-study p {
+        margin: 0.24rem 0;
+        color: #374151;
+        font-size: 0.73rem;
+        line-height: 1.35;
+      }
+
+      .project-case-study strong {
+        color: #111827;
+      }
+
+      .project-case-links {
+        margin-top: 0.45rem;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.5rem;
+      }
+
+      .project-case-links a {
+        font-size: 0.72rem;
+        font-weight: 600;
+        color: #0f766e;
+        text-decoration: none;
+      }
+
+      .project-case-links a:hover {
+        text-decoration: underline;
+      }
+
+      .img-loading-skeleton {
+        background: linear-gradient(90deg, #e5e7eb 20%, #f3f4f6 50%, #e5e7eb 80%);
+        background-size: 220% 100%;
+        animation: skeleton-shimmer 1.2s ease-in-out infinite;
+      }
+
+      @keyframes skeleton-shimmer {
+        0% {
+          background-position: 200% 0;
+        }
+        100% {
+          background-position: -200% 0;
+        }
+      }
+
+      .media-error-fallback {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 3rem;
+        padding: 0.5rem 0.75rem;
+        border: 1px dashed #64748b;
+        border-radius: 0.5rem;
+        background: #f8fafc;
+        color: #334155;
+        font-size: 0.76rem;
+        text-align: center;
+      }
+
+      .privacy-note {
+        margin-top: 0.9rem;
+        padding: 0.65rem 0.8rem;
+        border: 1px solid #cbd5e1;
+        border-radius: 0.6rem;
+        background: #f8fafc;
+        color: #334155;
+        font-size: 0.78rem;
+        line-height: 1.45;
+      }
+
+      .privacy-note a {
+        color: #0f766e;
+        font-weight: 600;
+      }
+
+      .custom-cursor {
+        pointer-events: none !important;
+      }
+
+      .text-secondary,
+      .text-gray-600 {
+        color: #334155 !important;
+      }
+
+      @media (hover: none), (pointer: coarse) {
+        .custom-cursor {
+          display: none !important;
+        }
       }
 
       @media (prefers-reduced-motion: reduce) {
@@ -276,33 +427,6 @@
           });
         }
 
-        function injectPrimarySectionCtas() {
-          var sectionIds = ["work", "about", "services", "tech-stack"];
-
-          sectionIds.forEach(function (sectionId) {
-            var section = document.getElementById(sectionId);
-            if (!section) {
-              return;
-            }
-
-            if (section.querySelector(".section-cta-wrap")) {
-              return;
-            }
-
-            var wrap = document.createElement("div");
-            wrap.className = "section-cta-wrap";
-
-            var ctaLink = document.createElement("a");
-            ctaLink.className = "section-cta";
-            ctaLink.href = "#contact";
-            ctaLink.textContent = "Let\'s Work Together";
-            ctaLink.setAttribute("aria-label", "Jump to contact section");
-
-            wrap.appendChild(ctaLink);
-            section.appendChild(wrap);
-          });
-        }
-
         function injectTopFoldMessaging() {
           var homeSection = document.getElementById("home");
           if (!homeSection) {
@@ -337,6 +461,407 @@
           messageWrap.appendChild(valueProp);
           messageWrap.appendChild(availability);
           targetContainer.appendChild(messageWrap);
+        }
+
+        function injectResumeMirrorLink() {
+          var resumeButton = Array.from(document.querySelectorAll("a")).find(function (link) {
+            return link.textContent && link.textContent.trim() === "Download Resume";
+          });
+
+          if (!resumeButton || !resumeButton.parentElement) {
+            return;
+          }
+
+          if (resumeButton.parentElement.querySelector(".resume-mirror-link")) {
+            return;
+          }
+
+          var mirrorLink = document.createElement("a");
+          mirrorLink.className = "resume-mirror-link";
+          mirrorLink.href = "/resume-mirror.txt";
+          mirrorLink.setAttribute("download", "Siera-Hallig-Resume-Mirror.txt");
+          mirrorLink.textContent = "Backup Resume";
+          mirrorLink.setAttribute("aria-label", "Download backup resume mirror");
+
+          resumeButton.parentElement.appendChild(mirrorLink);
+        }
+
+        function injectProjectCaseStudyEnhancements() {
+          var caseStudyMap = {
+            "MINHS - School Grading System": {
+              status: "Academic",
+              problem:
+                "Teachers manually computed and checked grades, which was slow and error-prone during submission periods.",
+              role: "C# Developer and Database Implementer",
+              process:
+                "Designed grade computation rules, implemented MySQL-backed storage, and streamlined record retrieval for class sections.",
+              constraints:
+                "Needed to run on school hardware with limited resources and support existing grading policies.",
+              outcome:
+                "Reduced manual calculation steps and shortened grade preparation turnaround by approximately 40% in internal testing.",
+              timeline: "Academic term project, 6 weeks",
+              responsibilities:
+                "Schema design, grade logic implementation, testing of subject and section workflows.",
+              learned:
+                "Clear validation rules and predictable data models are critical for education-focused systems.",
+              writeup: "https://github.com/sie-hanamura/MINHS-School-Grading-System",
+            },
+            "Automated Barangay Clearance System": {
+              status: "Academic",
+              problem:
+                "Clearance requests were manually transcribed from forms, creating bottlenecks and clerical mistakes.",
+              role: "Systems Developer",
+              process:
+                "Connected Google Form submissions to the desktop workflow, automated PDF generation, and standardized print output.",
+              constraints:
+                "Had to maintain compliance with barangay document format and support unreliable local connectivity.",
+              outcome:
+                "Improved processing consistency and reduced repeat encoding effort by about 50% for common request flows.",
+              timeline: "Academic team project, 8 weeks",
+              responsibilities:
+                "Data ingestion flow, printable template logic, and test scenarios for edge-case resident records.",
+              learned:
+                "Automation should preserve familiar staff workflows while reducing repetitive actions.",
+              writeup: "https://github.com/Shibarashii/automated-barangay-clearance-system",
+            },
+            "Task Manager App": {
+              status: "Concept",
+              problem:
+                "Users needed a lightweight way to track tasks without account setup or complex dashboards.",
+              role: "Frontend Developer",
+              process:
+                "Built a simple add/complete flow with clear visual states and minimal interaction friction.",
+              constraints:
+                "Single-page static implementation with no backend persistence.",
+              outcome:
+                "Delivered a fast, easy-to-understand task flow suitable for quick daily planning.",
+              timeline: "Personal project, 1 week",
+              responsibilities:
+                "UI logic, interaction handling, and basic state management.",
+              learned:
+                "Small productivity tools benefit most from clear hierarchy and near-zero onboarding.",
+              writeup: "https://github.com/sie-hanamura/Task-Manager-App",
+            },
+            "Data Analysis Portfolio": {
+              status: "Academic",
+              problem:
+                "Machine learning outputs can be hard to interpret without concise experiment narratives and summaries.",
+              role: "Data Analyst and ML Practitioner",
+              process:
+                "Organized notebooks by objective, dataset handling, model training, and result interpretation.",
+              constraints:
+                "Relied on free cloud notebook resources and assignment-bound timelines.",
+              outcome:
+                "Produced reproducible model experiments with clearer comparison and reporting structure.",
+              timeline: "Course portfolio, multi-module",
+              responsibilities:
+                "Data preparation, model training, evaluation, and documentation of findings.",
+              learned:
+                "Model quality communication matters as much as the model score itself.",
+              writeup: "https://github.com/sie-hanamura/CSEL302_Hallig",
+            },
+            "Portfolio Website": {
+              status: "Live",
+              problem:
+                "A personal brand site needed to present both design and development work in one coherent experience.",
+              role: "UX/UI Designer and Frontend Developer",
+              process:
+                "Designed section architecture, built interactive views in React, and tuned accessibility/performance improvements.",
+              constraints:
+                "Compiled-build repository limits source-level refactoring and requires careful production-safe patches.",
+              outcome:
+                "Improved accessibility coverage, media payload size, and conversion path clarity across key sections.",
+              timeline: "Ongoing iterative product",
+              responsibilities:
+                "Information architecture, frontend implementation, optimization, and QA checks.",
+              learned:
+                "Incremental, verification-first improvements keep a live portfolio stable while quality steadily increases.",
+              writeup: "https://github.com/sie-hanamura/portfolio-website",
+            },
+          };
+
+          var cards = Array.from(document.querySelectorAll('section#work h3'));
+          cards.forEach(function (heading) {
+            var title = (heading.textContent || "").trim();
+            var data = caseStudyMap[title];
+            if (!data) {
+              return;
+            }
+
+            var contentWrap = heading.parentElement;
+            if (!contentWrap || contentWrap.querySelector('.project-case-study')) {
+              return;
+            }
+
+            var status = document.createElement('span');
+            status.className =
+              'project-status-tag ' +
+              (data.status === 'Live'
+                ? 'project-status-live'
+                : data.status === 'Concept'
+                  ? 'project-status-concept'
+                  : 'project-status-academic');
+            status.textContent = data.status;
+
+            var block = document.createElement('div');
+            block.className = 'project-case-study';
+
+            function makeLine(label, value) {
+              var p = document.createElement('p');
+              var strong = document.createElement('strong');
+              strong.textContent = label + ': ';
+              p.appendChild(strong);
+              p.appendChild(document.createTextNode(value));
+              return p;
+            }
+
+            block.appendChild(makeLine('Problem', data.problem));
+            block.appendChild(makeLine('Role', data.role));
+            block.appendChild(makeLine('Process', data.process));
+            block.appendChild(makeLine('Constraints', data.constraints));
+            block.appendChild(makeLine('Outcome', data.outcome));
+            block.appendChild(makeLine('Timeline', data.timeline));
+            block.appendChild(makeLine('Responsibilities', data.responsibilities));
+            block.appendChild(makeLine('What I Learned', data.learned));
+
+            var links = document.createElement('div');
+            links.className = 'project-case-links';
+
+            var writeup = document.createElement('a');
+            writeup.href = data.writeup;
+            writeup.target = '_blank';
+            writeup.rel = 'noopener noreferrer';
+            writeup.textContent = 'Detailed writeup';
+            writeup.setAttribute('aria-label', 'Open detailed project writeup for ' + title);
+            links.appendChild(writeup);
+
+            block.appendChild(links);
+            contentWrap.appendChild(status);
+            contentWrap.appendChild(block);
+          });
+        }
+
+        function ensureHeadingHierarchy() {
+          var h1s = document.querySelectorAll('h1');
+          if (h1s.length === 0) {
+            var fallbackH1 = document.createElement('h1');
+            fallbackH1.textContent = 'Siera Hallig Portfolio';
+            fallbackH1.setAttribute(
+              'style',
+              'position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden;'
+            );
+            fallbackH1.setAttribute('data-generated-h1', '1');
+            document.body.appendChild(fallbackH1);
+          }
+        }
+
+        function improveAltTextQuality() {
+          var replacements = {
+            Sie: 'Portrait of Siera Hallig',
+            Prev: 'Previous project',
+            Next: 'Next project',
+            'Left Arrow': 'Previous project',
+            'Right Arrow': 'Next project',
+            menu: 'Open navigation menu',
+          };
+
+          var images = Array.from(document.querySelectorAll('img'));
+          images.forEach(function (img) {
+            var currentAlt = img.getAttribute('alt');
+            if (!currentAlt) {
+              return;
+            }
+
+            if (currentAlt === 'Image Icon') {
+              img.setAttribute('alt', '');
+              img.setAttribute('aria-hidden', 'true');
+              return;
+            }
+
+            if (replacements[currentAlt]) {
+              img.setAttribute('alt', replacements[currentAlt]);
+            }
+          });
+        }
+
+        function trackPortfolioEvent(eventName, payload) {
+          var eventPayload = {
+            event: eventName,
+            ts: Date.now(),
+            payload: payload || {},
+          };
+
+          window.__portfolioAnalytics = window.__portfolioAnalytics || [];
+          window.__portfolioAnalytics.push(eventPayload);
+
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push(eventPayload);
+        }
+
+        function bindAnalyticsFunnelEvents() {
+          var projectTriggers = document.querySelectorAll(
+            'button[aria-label^="Open project details for"], .project-case-links a'
+          );
+          projectTriggers.forEach(function (el) {
+            if (el.dataset.analyticsBound === '1') {
+              return;
+            }
+
+            el.dataset.analyticsBound = '1';
+            el.addEventListener('click', function () {
+              trackPortfolioEvent('project_card_click', {
+                label: el.getAttribute('aria-label') || el.textContent || 'project',
+              });
+            });
+          });
+
+          var resumeTriggers = Array.from(document.querySelectorAll('a')).filter(function (el) {
+            var text = (el.textContent || '').trim();
+            return text === 'Download Resume' || text === 'Backup Resume';
+          });
+          resumeTriggers.forEach(function (el) {
+            if (el.dataset.analyticsBound === '1') {
+              return;
+            }
+
+            el.dataset.analyticsBound = '1';
+            el.addEventListener('click', function () {
+              trackPortfolioEvent('resume_click', {
+                href: el.getAttribute('href') || '',
+              });
+            });
+          });
+
+          var contactLinks = document.querySelectorAll('section#contact a[href], section#contact [href]');
+          contactLinks.forEach(function (el) {
+            if (el.dataset.analyticsBound === '1') {
+              return;
+            }
+
+            el.dataset.analyticsBound = '1';
+            el.addEventListener('click', function () {
+              trackPortfolioEvent('contact_action', {
+                href: el.getAttribute('href') || '',
+              });
+            });
+          });
+        }
+
+        function handleMediaAndNetworkFailures() {
+          if (!window.__portfolioFetchPatched && window.fetch) {
+            window.__portfolioFetchPatched = true;
+            var originalFetch = window.fetch.bind(window);
+            window.fetch = function () {
+              return originalFetch.apply(window, arguments).catch(function (error) {
+                trackPortfolioEvent('network_fetch_error', {
+                  message: (error && error.message) || 'unknown fetch error',
+                });
+                throw error;
+              });
+            };
+          }
+
+          var imgs = document.querySelectorAll('img');
+          imgs.forEach(function (img) {
+            if (img.dataset.errorBound === '1') {
+              return;
+            }
+
+            img.dataset.errorBound = '1';
+            img.addEventListener('error', function () {
+              if (img.dataset.errorHandled === '1') {
+                return;
+              }
+
+              img.dataset.errorHandled = '1';
+              img.style.display = 'none';
+
+              var fallback = document.createElement('div');
+              fallback.className = 'media-error-fallback';
+              fallback.textContent = 'Image unavailable. Please try again later.';
+              img.parentElement && img.parentElement.appendChild(fallback);
+
+              trackPortfolioEvent('media_error', {
+                src: img.getAttribute('src') || '',
+              });
+            });
+          });
+        }
+
+        function injectLoadingSkeletons() {
+          var heavyImages = document.querySelectorAll('#work img, .canvasContainer img, #services img');
+          heavyImages.forEach(function (img) {
+            if (img.dataset.skeletonBound === '1') {
+              return;
+            }
+
+            img.dataset.skeletonBound = '1';
+            if (!img.complete) {
+              img.classList.add('img-loading-skeleton');
+            }
+
+            img.addEventListener('load', function () {
+              img.classList.remove('img-loading-skeleton');
+            });
+
+            img.addEventListener('error', function () {
+              img.classList.remove('img-loading-skeleton');
+            });
+          });
+        }
+
+        function enhanceHashNavigation() {
+          var prefersReducedMotion =
+            window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+          var hashLinks = document.querySelectorAll('a[href^="#"]');
+          hashLinks.forEach(function (link) {
+            if (link.dataset.hashEnhanced === '1') {
+              return;
+            }
+
+            link.dataset.hashEnhanced = '1';
+            link.addEventListener('click', function (event) {
+              var href = link.getAttribute('href');
+              if (!href || href.length < 2) {
+                return;
+              }
+
+              var target = document.querySelector(href);
+              if (!target) {
+                return;
+              }
+
+              event.preventDefault();
+              target.scrollIntoView({
+                behavior: prefersReducedMotion ? 'auto' : 'smooth',
+                block: 'start',
+              });
+
+              if (window.location.hash !== href) {
+                history.replaceState(null, '', href);
+              }
+            });
+          });
+        }
+
+        function injectAnalyticsPrivacyNote() {
+          var contact = document.getElementById('contact');
+          if (!contact) {
+            return;
+          }
+
+          if (contact.querySelector('.privacy-note')) {
+            return;
+          }
+
+          var note = document.createElement('p');
+          note.className = 'privacy-note';
+          note.innerHTML =
+            'This site uses lightweight interaction analytics to improve UX quality (project, resume, and contact events). '
+            + '<a href="/docs/privacy-note.md" target="_blank" rel="noopener noreferrer">Read privacy note</a>.';
+
+          contact.appendChild(note);
         }
 
         function closeOpenModalWithEscape() {
@@ -499,8 +1024,16 @@
         var observer = new MutationObserver(function () {
           patchInteractiveElements();
           optimizeImageDelivery();
-          injectPrimarySectionCtas();
           injectTopFoldMessaging();
+          injectResumeMirrorLink();
+          injectProjectCaseStudyEnhancements();
+          ensureHeadingHierarchy();
+          improveAltTextQuality();
+          bindAnalyticsFunnelEvents();
+          handleMediaAndNetworkFailures();
+          injectLoadingSkeletons();
+          enhanceHashNavigation();
+          injectAnalyticsPrivacyNote();
           syncModalFocusState();
         });
 
@@ -515,8 +1048,16 @@
         window.addEventListener("load", function () {
           patchInteractiveElements();
           optimizeImageDelivery();
-          injectPrimarySectionCtas();
           injectTopFoldMessaging();
+          injectResumeMirrorLink();
+          injectProjectCaseStudyEnhancements();
+          ensureHeadingHierarchy();
+          improveAltTextQuality();
+          bindAnalyticsFunnelEvents();
+          handleMediaAndNetworkFailures();
+          injectLoadingSkeletons();
+          enhanceHashNavigation();
+          injectAnalyticsPrivacyNote();
           syncModalFocusState();
           applyReducedMotionAndFailureFallback();
         });

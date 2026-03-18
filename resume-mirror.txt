@@ -1,0 +1,32 @@
+Siera Hallig
+UX/UI Designer and Web Developer
+Location: Philippines
+
+Portfolio:
+https://sie-hanamura.vercel.app/
+
+Professional Summary:
+I design and build accessible, performance-focused web experiences.
+My work combines UX/UI design, frontend development, and practical problem-solving
+for portfolio projects and real-world academic/community systems.
+
+Core Skills:
+- UX/UI Design (Figma, wireframing, prototyping)
+- Frontend Development (React, JavaScript, HTML, CSS, Tailwind)
+- 3D and Interactive Web Experiences (Three.js)
+- Backend and Data Basics (C#, MySQL, Python)
+
+Selected Projects:
+- MINHS School Grading System (C#, MySQL)
+- Automated Barangay Clearance System (C#, MySQL)
+- Task Manager App (JavaScript, HTML, CSS)
+- Data Analysis Portfolio (Python, Scikit-learn)
+- Personal Portfolio Website (React, Tailwind, Three.js)
+
+Contact:
+- Email: qsierahallig@gmail.com
+- GitHub: https://github.com/sie-hanamura
+- LinkedIn: https://www.linkedin.com/in/hallig-siera/
+- Behance: https://www.behance.net/sie-hanamura
+
+Last updated: 2026-03-18

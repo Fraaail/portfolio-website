@@ -1,0 +1,29 @@
+MINHS - SCHOOL GRADING SYSTEM
+One-Page Case Study
+
+Problem:
+Teachers were manually computing and verifying grades, creating delays
+and introducing avoidable human error during submission windows.
+
+Role:
+C# Developer and Database Implementer.
+
+Process:
+- Designed MySQL-backed data model for class, subject, and grading records.
+- Implemented grade computation logic in C#.
+- Added validation checks for grade entry and retrieval workflows.
+
+Constraints:
+- Needed to align with school grading policies.
+- Needed to run on available school hardware.
+
+Outcome:
+- Reduced repeated manual computation work.
+- Improved turnaround by roughly 40% in internal testing scenarios.
+
+What I Learned:
+Validation-first data modeling is essential in education systems where
+accuracy and consistency are non-negotiable.
+
+Author: Siera Hallig
+Date: 2026-03-18

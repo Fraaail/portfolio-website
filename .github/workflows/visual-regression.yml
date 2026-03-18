@@ -1,0 +1,43 @@
+name: Visual Regression Check
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+
+jobs:
+  visual-regression:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install visual regression dependencies
+        run: |
+          npm init -y
+          npm install playwright pixelmatch pngjs http-server
+
+      - name: Install browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Start static server
+        run: npx http-server . -p 4173 -s &
+
+      - name: Run visual regression check
+        env:
+          VR_BASE_URL: http://127.0.0.1:4173
+        run: node visual-regression/check.js
+
+      - name: Upload visual artifacts
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: visual-regression-artifacts
+          path: |
+            visual-regression/current
+            visual-regression/diff
