@@ -63,21 +63,21 @@ Success criteria:
 ### Accessibility fundamentals
 - [x] Convert non-semantic clickable containers into semantic button/a elements.
   - Acceptance: all clickable controls are reachable and operable by keyboard.
-- [ ] Add visible focus states for all interactive components.
+- [x] Add visible focus states for all interactive components.
   - Acceptance: focus ring is always visible in keyboard navigation.
-- [ ] Ensure keyboard interaction parity (Enter/Space/Escape where relevant).
+- [x] Ensure keyboard interaction parity (Enter/Space/Escape where relevant).
   - Acceptance: no pointer-only required interactions.
-- [ ] Add aria-current or equivalent active-state semantics on nav links.
+- [x] Add aria-current or equivalent active-state semantics on nav links.
   - Acceptance: screen readers announce active section.
-- [ ] Add skip-to-content link.
+- [x] Add skip-to-content link.
   - Acceptance: keyboard users can bypass nav quickly.
-- [ ] Validate modal accessibility (focus trap, Escape close, focus return).
+- [x] Validate modal accessibility (focus trap, Escape close, focus return).
   - Acceptance: modal flow is fully keyboard and screen-reader compatible.
 
 ### CSS and visual correctness
-- [ ] Fix invalid CSS tokenization for portfolioHeadText font-size (font-size:7 rem).
+- [x] Fix invalid CSS tokenization for portfolioHeadText font-size (font-size:7 rem).
   - Acceptance: valid declaration used and renders consistently.
-- [ ] Review and align global color-scheme declaration with actual visual theme.
+- [x] Review and align global color-scheme declaration with actual visual theme.
   - Acceptance: browser-level controls and form UI match intended theme.
 
 ### Performance quick wins
@@ -85,15 +85,15 @@ Success criteria:
   - Acceptance: rendering overhead is reduced without functional regressions.
 - [x] Reassess devicePixelRatio strategy for 3D canvas.
   - Acceptance: lower GPU pressure on low-end/mobile devices.
-- [ ] Gate or reduce 3D complexity on reduced-motion/low-power contexts.
+- [x] Gate or reduce 3D complexity on reduced-motion/low-power contexts.
   - Acceptance: low-end users receive a lighter experience or fallback.
-- [ ] Add fallback state for 3D loading errors.
+- [x] Add fallback state for 3D loading errors.
   - Acceptance: no blank/blocked hero if model fails to load.
 
 ### Build artifact hygiene
-- [ ] Clean outdated hashed assets from repository/deploy output.
+- [x] Clean outdated hashed assets from repository/deploy output.
   - Acceptance: only active production bundle artifacts remain.
-- [ ] Establish single deployable build output policy.
+- [x] Establish single deployable build output policy.
   - Acceptance: repeat builds do not accumulate stale assets.
 
 ---
@@ -207,14 +207,14 @@ Acceptance criteria:
 ### 2) Accessibility (A11y)
 - [x] Semantic interactive elements.
 - [ ] Accessible labels + visible focus.
-- [ ] Skip-to-content.
+- [x] Skip-to-content.
 - [ ] Prefers-reduced-motion handling.
-- [ ] Modal focus trap/Escape/focus restore.
+- [x] Modal focus trap/Escape/focus restore.
 - [ ] Heading hierarchy audit.
 - [ ] Descriptive alt text.
 - [ ] Contrast verification.
 - [ ] Cursor behavior compatibility.
-- [ ] aria-current for nav state.
+- [x] aria-current for nav state.
 
 ### 3) Performance and loading
 - [x] Disable preserveDrawingBuffer if unnecessary.

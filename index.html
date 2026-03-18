@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/pixel.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="color-scheme" content="light" />
     <title>Siera Hallig | UX/UI Designer and Web Developer Portfolio</title>
     <meta
       name="description"
@@ -85,7 +86,8 @@
 
       a:focus-visible,
       button:focus-visible,
-      [role="button"]:focus-visible {
+      [role="button"]:focus-visible,
+      [tabindex]:focus-visible {
         outline: 3px solid #0f766e;
         outline-offset: 3px;
       }
@@ -119,6 +121,9 @@
     <div id="root"></div>
     <script>
       (function () {
+        var wasModalOpen = false;
+        var previouslyFocusedElement = null;
+
         function ensureButtonBehavior(el) {
           if (!el || el.dataset.a11yPatched === "1") {
             return;
@@ -173,6 +178,104 @@
           });
 
           setAriaCurrentFromHash();
+        }
+
+        function closeOpenModalWithEscape() {
+          var closeButton = document.querySelector('button[aria-label="Close"]');
+          if (closeButton) {
+            closeButton.click();
+            return;
+          }
+
+          var backdrop = document.querySelector('.fixed.inset-0.bg-black\/70.z-10');
+          if (backdrop) {
+            backdrop.click();
+          }
+        }
+
+        function getActiveModalRoot() {
+          return document.querySelector(".fixed.inset-0.z-40");
+        }
+
+        function syncModalFocusState() {
+          var modalRoot = getActiveModalRoot();
+          var isModalOpen = !!modalRoot;
+
+          if (isModalOpen && !wasModalOpen) {
+            previouslyFocusedElement = document.activeElement;
+            window.setTimeout(function () {
+              var closeButton = modalRoot.querySelector('button[aria-label="Close"]');
+              if (closeButton && typeof closeButton.focus === "function") {
+                closeButton.focus();
+              }
+            }, 0);
+          }
+
+          if (!isModalOpen && wasModalOpen) {
+            if (
+              previouslyFocusedElement &&
+              typeof previouslyFocusedElement.focus === "function" &&
+              document.contains(previouslyFocusedElement)
+            ) {
+              previouslyFocusedElement.focus();
+            } else {
+              var skipLink = document.querySelector(".skip-link");
+              if (skipLink && typeof skipLink.focus === "function") {
+                skipLink.focus();
+              }
+            }
+          }
+
+          wasModalOpen = isModalOpen;
+        }
+
+        function trapFocusInModal(event) {
+          var modalRoot = getActiveModalRoot();
+          if (!modalRoot) {
+            return;
+          }
+
+          var focusableElements = Array.from(
+            modalRoot.querySelectorAll(
+              'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"]), input:not([disabled]), select:not([disabled]), textarea:not([disabled])'
+            )
+          );
+
+          if (!focusableElements.length) {
+            return;
+          }
+
+          var first = focusableElements[0];
+          var last = focusableElements[focusableElements.length - 1];
+
+          if (!modalRoot.contains(document.activeElement)) {
+            event.preventDefault();
+            first.focus();
+            return;
+          }
+
+          if (event.shiftKey && document.activeElement === first) {
+            event.preventDefault();
+            last.focus();
+            return;
+          }
+
+          if (!event.shiftKey && document.activeElement === last) {
+            event.preventDefault();
+            first.focus();
+          }
+        }
+
+        function handleGlobalKeyboard(event) {
+          if (event.key === "Escape") {
+            event.preventDefault();
+            closeOpenModalWithEscape();
+            return;
+          }
+
+          if (event.key === "Tab") {
+            trapFocusInModal(event);
+          }
         }
 
         function mountCanvasFallback(container, reasonText) {
@@ -236,6 +339,7 @@
 
         var observer = new MutationObserver(function () {
           patchInteractiveElements();
+          syncModalFocusState();
         });
 
         observer.observe(document.documentElement, {
@@ -245,8 +349,10 @@
         });
 
         window.addEventListener("hashchange", setAriaCurrentFromHash);
+        window.addEventListener("keydown", handleGlobalKeyboard);
         window.addEventListener("load", function () {
           patchInteractiveElements();
+          syncModalFocusState();
           applyReducedMotionAndFailureFallback();
         });
       })();
