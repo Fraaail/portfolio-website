@@ -101,20 +101,20 @@ Success criteria:
 ## P1 checklist - High value, moderate effort
 
 ### Media and asset optimization
-- [ ] Define image optimization strategy (WebP/AVIF, quality levels, dimensions).
-- [ ] Implement lazy-loading for non-critical images and gallery previews.
-- [ ] Add responsive image handling (srcset/sizes where possible).
-- [ ] Compress and resize oversized media files.
+- [x] Define image optimization strategy (WebP/AVIF, quality levels, dimensions).
+- [x] Implement lazy-loading for non-critical images and gallery previews.
+- [x] Add responsive image handling (srcset/sizes where possible).
+- [x] Compress and resize oversized media files.
 
 Acceptance criteria:
 - [ ] Above-the-fold media loads quickly.
 - [ ] Offscreen media does not impact initial LCP heavily.
 
 ### UX and conversion improvements
-- [ ] Improve nav IA to include all major sections (including skills/library if applicable).
-- [ ] Add consistent primary CTA placement across key sections.
-- [ ] Add concise top-fold value proposition (role, specialty, business/user impact).
-- [ ] Add clear availability statement (full-time/freelance/internship).
+- [x] Improve nav IA to include all major sections (including skills/library if applicable).
+- [x] Add consistent primary CTA placement across key sections.
+- [x] Add concise top-fold value proposition (role, specialty, business/user impact).
+- [x] Add clear availability statement (full-time/freelance/internship).
 - [ ] Add downloadable resume mirror (backup to external drive link).
 
 Acceptance criteria:

@@ -104,6 +104,64 @@
         box-shadow: 0 10px 20px rgba(0, 0, 0, 0.18);
       }
 
+      .section-cta-wrap {
+        margin-top: 1rem;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+      }
+
+      .section-cta {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #1f2937;
+        border-radius: 999px;
+        padding: 0.6rem 1.1rem;
+        background: #ffffff;
+        color: #0f172a;
+        font-size: 0.9rem;
+        font-weight: 600;
+        line-height: 1;
+        text-decoration: none;
+        transition: background-color 0.2s ease, color 0.2s ease, transform 0.2s ease;
+      }
+
+      .section-cta:hover {
+        background: #0f766e;
+        color: #ffffff;
+        transform: translateY(-1px);
+      }
+
+      .topfold-message {
+        margin-top: 0.85rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+      }
+
+      .topfold-value-prop {
+        margin: 0;
+        color: #334155;
+        font-size: 0.95rem;
+        line-height: 1.4;
+        max-width: 44rem;
+      }
+
+      .availability-chip {
+        display: inline-block;
+        border: 1px solid #0f766e;
+        border-radius: 999px;
+        padding: 0.3rem 0.7rem;
+        background: #ecfeff;
+        color: #115e59;
+        font-size: 0.78rem;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        text-transform: uppercase;
+      }
+
       @media (prefers-reduced-motion: reduce) {
         *,
         *::before,
@@ -178,6 +236,107 @@
           });
 
           setAriaCurrentFromHash();
+        }
+
+        function optimizeImageDelivery() {
+          var images = Array.from(document.querySelectorAll("img"));
+          if (!images.length) {
+            return;
+          }
+
+          images.forEach(function (img) {
+            if (img.dataset.imageOptimized === "1") {
+              return;
+            }
+
+            var isCritical = !!img.closest("#home, nav, .canvasContainer");
+
+            if (isCritical) {
+              if (!img.hasAttribute("loading")) {
+                img.setAttribute("loading", "eager");
+              }
+              if (!img.hasAttribute("fetchpriority")) {
+                img.setAttribute("fetchpriority", "high");
+              }
+            } else {
+              img.setAttribute("loading", "lazy");
+              img.setAttribute("decoding", "async");
+              img.setAttribute("fetchpriority", "low");
+            }
+
+            if (!img.hasAttribute("sizes")) {
+              if (img.closest(".grid")) {
+                img.setAttribute("sizes", "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw");
+              } else if (img.className.indexOf("w-full") !== -1) {
+                img.setAttribute("sizes", "(max-width: 1024px) 100vw, 80vw");
+              }
+            }
+
+            img.dataset.imageOptimized = "1";
+          });
+        }
+
+        function injectPrimarySectionCtas() {
+          var sectionIds = ["work", "about", "services", "tech-stack"];
+
+          sectionIds.forEach(function (sectionId) {
+            var section = document.getElementById(sectionId);
+            if (!section) {
+              return;
+            }
+
+            if (section.querySelector(".section-cta-wrap")) {
+              return;
+            }
+
+            var wrap = document.createElement("div");
+            wrap.className = "section-cta-wrap";
+
+            var ctaLink = document.createElement("a");
+            ctaLink.className = "section-cta";
+            ctaLink.href = "#contact";
+            ctaLink.textContent = "Let\'s Work Together";
+            ctaLink.setAttribute("aria-label", "Jump to contact section");
+
+            wrap.appendChild(ctaLink);
+            section.appendChild(wrap);
+          });
+        }
+
+        function injectTopFoldMessaging() {
+          var homeSection = document.getElementById("home");
+          if (!homeSection) {
+            return;
+          }
+
+          if (homeSection.querySelector(".topfold-message")) {
+            return;
+          }
+
+          var targetContainer =
+            homeSection.querySelector(".heroText") ||
+            homeSection.querySelector("h1") && homeSection.querySelector("h1").parentElement ||
+            homeSection;
+
+          if (!targetContainer) {
+            return;
+          }
+
+          var messageWrap = document.createElement("div");
+          messageWrap.className = "topfold-message";
+
+          var valueProp = document.createElement("p");
+          valueProp.className = "topfold-value-prop";
+          valueProp.textContent =
+            "I design and build accessible, performance-focused web experiences that turn ideas into production-ready products.";
+
+          var availability = document.createElement("span");
+          availability.className = "availability-chip";
+          availability.textContent = "Available for full-time and freelance work";
+
+          messageWrap.appendChild(valueProp);
+          messageWrap.appendChild(availability);
+          targetContainer.appendChild(messageWrap);
         }
 
         function closeOpenModalWithEscape() {
@@ -339,6 +498,9 @@
 
         var observer = new MutationObserver(function () {
           patchInteractiveElements();
+          optimizeImageDelivery();
+          injectPrimarySectionCtas();
+          injectTopFoldMessaging();
           syncModalFocusState();
         });
 
@@ -352,6 +514,9 @@
         window.addEventListener("keydown", handleGlobalKeyboard);
         window.addEventListener("load", function () {
           patchInteractiveElements();
+          optimizeImageDelivery();
+          injectPrimarySectionCtas();
+          injectTopFoldMessaging();
           syncModalFocusState();
           applyReducedMotionAndFailureFallback();
         });

@@ -28,13 +28,18 @@ Always implement top-to-bottom in P0, then P1, then P2.
 20. P0 Performance quick wins: added and retained timed fallback state when 3D canvas fails to mount.
 21. P0 Build artifact hygiene: removed stale hashed `assets/index-*.js` and `assets/index-*.css` files, keeping only active entry artifacts.
 22. P0 Build artifact hygiene: documented a single deployable build output policy in README.
+23. P1 Media and asset optimization: documented image optimization strategy (format policy, quality ranges, target dimensions) in docs/media-optimization-strategy.md.
+24. P1 Media and asset optimization: added runtime lazy-loading and async decoding for non-critical/offscreen images.
+25. P1 Media and asset optimization: added responsive image sizing hints (`sizes`) for grid/full-width contexts where possible.
+26. P1 Media and asset optimization: compressed/resized largest raster assets in-place (ImageMagick), reducing payload for key portfolio media.
+27. P1 UX and conversion improvements: expanded nav IA by including the existing `tech-stack` (Library) section in primary navigation.
+28. P1 UX and conversion improvements: injected consistent primary CTA links (`Let's Work Together` to `#contact`) across major sections.
+29. P1 UX and conversion improvements: injected concise top-fold value proposition copy in the home section.
+30. P1 UX and conversion improvements: added visible top-fold availability statement for full-time/freelance opportunities.
 
 ## In progress
-23. P1 Media and asset optimization:
-- Define image optimization strategy (WebP/AVIF, quality levels, dimensions).
-- Implement lazy-loading for non-critical images and gallery previews.
-- Add responsive image handling (srcset/sizes where possible).
-- Compress and resize oversized media files.
+31. P1 UX and conversion improvements:
+- Add downloadable resume mirror (backup to external drive link).
 
 ## Verification checklist for each implemented item
 - [ ] No syntax errors.
@@ -44,4 +49,4 @@ Always implement top-to-bottom in P0, then P1, then P2.
 - [ ] Checklist status updated in docs/checklist.md.
 
 ## Next immediate implementation target
-P1 item #23 onward in strict order (media and asset optimization).
+P1 item #31 onward in strict order (remaining UX and conversion improvements).
