@@ -202,7 +202,7 @@ Acceptance criteria:
 - [x] Canonical.
 - [x] JSON-LD Person + WebSite.
 - [x] Favicon variants + manifest.
-- [ ] Robots + sitemap.
+- [x] Robots + sitemap.
 
 ### 2) Accessibility (A11y)
 - [x] Semantic interactive elements.
