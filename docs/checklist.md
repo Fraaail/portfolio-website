@@ -61,7 +61,7 @@ Success criteria:
   - Acceptance: rich results testing tools show valid schema.
 
 ### Accessibility fundamentals
-- [ ] Convert non-semantic clickable containers into semantic button/a elements.
+- [x] Convert non-semantic clickable containers into semantic button/a elements.
   - Acceptance: all clickable controls are reachable and operable by keyboard.
 - [ ] Add visible focus states for all interactive components.
   - Acceptance: focus ring is always visible in keyboard navigation.
@@ -205,7 +205,7 @@ Acceptance criteria:
 - [ ] Robots + sitemap.
 
 ### 2) Accessibility (A11y)
-- [ ] Semantic interactive elements.
+- [x] Semantic interactive elements.
 - [ ] Accessible labels + visible focus.
 - [ ] Skip-to-content.
 - [ ] Prefers-reduced-motion handling.

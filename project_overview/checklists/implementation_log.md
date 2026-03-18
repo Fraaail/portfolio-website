@@ -16,10 +16,10 @@ Always implement top-to-bottom in P0, then P1, then P2.
 8. P0 Accessibility: added nav aria-current sync and keyboard parity patching in index.html bootstrap script.
 9. P0 CSS correctness: fixed `portfolioHeadText` invalid font-size declaration via override in index.html.
 10. P0 Performance quick wins: updated 3D canvas config in compiled bundle (`dpr:[1,1.5]`, `preserveDrawingBuffer:!1`).
+11. P0 Accessibility fundamentals: converted primary clickable project preview container from non-semantic `div` to semantic `button` in compiled bundle.
 
 ## In progress
-11. P0 Accessibility fundamentals:
-- Convert non-semantic clickable containers to semantic button/a elements.
+12. P0 Accessibility fundamentals:
 - Add visible focus states.
 - Ensure keyboard interaction parity.
 - Add aria-current for active nav state.
