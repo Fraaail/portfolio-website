@@ -70,10 +70,11 @@ Always implement top-to-bottom in P0, then P1, then P2.
 62. P2 Visual system and code quality: added style linting/formatting workflow for maintained files via `.github/workflows/style-check.yml`, `.prettierrc.json`, `.prettierignore`, `.markdownlint.json`, and `docs/style-linting-workflow.md`.
 63. UX content adjustment: removed injected `Let's Work Together` section CTA buttons and removed injected Insights section from `index.html` per current direction.
 64. P2 Visual system and code quality: added visual regression checks for key sections via `.github/workflows/visual-regression.yml`, `visual-regression/check.js`, and `docs/visual-regression-workflow.md`.
+65. Full-domain SEO and discoverability: added favicon variants (`favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, Android icon variants) and linked web manifest support via `site.webmanifest` + `index.html` head links.
 
 ## In progress
-65. Full-domain checklist continuation:
-- SEO and discoverability: add favicon variants + manifest.
+66. Full-domain checklist continuation:
+- SEO and discoverability: add robots + sitemap.
 
 ## Verification checklist for each implemented item
 - [ ] No syntax errors.
@@ -83,4 +84,4 @@ Always implement top-to-bottom in P0, then P1, then P2.
 - [ ] Checklist status updated in docs/checklist.md.
 
 ## Next immediate implementation target
-Item #65 onward in strict order (remaining full-domain checklist tasks).
+Item #66 onward in strict order (remaining full-domain checklist tasks).

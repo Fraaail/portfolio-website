@@ -201,7 +201,7 @@ Acceptance criteria:
 - [x] Twitter card tags.
 - [x] Canonical.
 - [x] JSON-LD Person + WebSite.
-- [ ] Favicon variants + manifest.
+- [x] Favicon variants + manifest.
 - [ ] Robots + sitemap.
 
 ### 2) Accessibility (A11y)
