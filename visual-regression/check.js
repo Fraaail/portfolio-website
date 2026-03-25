@@ -2,13 +2,15 @@ const fs = require('fs');
 const path = require('path');
 const { chromium } = require('playwright');
 const { PNG } = require('pngjs');
-const pixelmatch = require('pixelmatch');
+const pixelmatchModule = require('pixelmatch');
+const pixelmatch = pixelmatchModule.default || pixelmatchModule;
 
 const ROOT = process.cwd();
 const BASE_URL = process.env.VR_BASE_URL || 'http://127.0.0.1:4173';
 const BASELINE_DIR = path.join(ROOT, 'visual-regression', 'baselines');
 const CURRENT_DIR = path.join(ROOT, 'visual-regression', 'current');
 const DIFF_DIR = path.join(ROOT, 'visual-regression', 'diff');
+const UPDATE_BASELINES = process.argv.includes('--update-baselines');
 
 const targets = [
   { name: 'home', hash: '#home' },
@@ -38,6 +40,18 @@ function writePng(filePath, png) {
 
   const browser = await chromium.launch({ headless: true });
   const page = await browser.newPage({ viewport: { width: 1440, height: 900 } });
+  await page.emulateMedia({ reducedMotion: 'reduce' });
+
+  // Keep captures deterministic by disabling motion/transitions.
+  await page.addStyleTag({
+    content: `
+      *, *::before, *::after {
+        animation: none !important;
+        transition: none !important;
+        scroll-behavior: auto !important;
+      }
+    `
+  });
 
   let missingBaseline = false;
   let hasRegression = false;
@@ -57,9 +71,13 @@ function writePng(filePath, png) {
       await page.waitForTimeout(250);
     }
 
-    await page.screenshot({ path: currentPath, fullPage: false });
+    if (section) {
+      await section.screenshot({ path: currentPath });
+    } else {
+      await page.screenshot({ path: currentPath, fullPage: false });
+    }
 
-    if (!fs.existsSync(baselinePath)) {
+    if (UPDATE_BASELINES || !fs.existsSync(baselinePath)) {
       fs.copyFileSync(currentPath, baselinePath);
       missingBaseline = true;
       continue;
@@ -93,6 +111,11 @@ function writePng(filePath, png) {
   }
 
   await browser.close();
+
+  if (UPDATE_BASELINES) {
+    console.log('Baselines updated successfully.');
+    process.exit(0);
+  }
 
   if (missingBaseline) {
     console.error('Baseline images were missing. Baselines were generated in visual-regression/baselines. Commit them and re-run checks.');
