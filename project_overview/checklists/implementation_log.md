@@ -3,9 +3,11 @@
 This log tracks implementation order from docs/checklist.md and docs/improvements.md.
 
 ## Sequence rule
+
 Always implement top-to-bottom in P0, then P1, then P2.
 
 ## Completed
+
 1. P0 SEO metadata: homepage title strategy in index.html.
 2. P0 SEO metadata: meta description in index.html.
 3. P0 SEO metadata: Open Graph tags in index.html.
@@ -72,12 +74,16 @@ Always implement top-to-bottom in P0, then P1, then P2.
 64. P2 Visual system and code quality: added visual regression checks for key sections via `.github/workflows/visual-regression.yml`, `visual-regression/check.js`, and `docs/visual-regression-workflow.md`.
 65. Full-domain SEO and discoverability: added favicon variants (`favicon-16x16.png`, `favicon-32x32.png`, `apple-touch-icon.png`, Android icon variants) and linked web manifest support via `site.webmanifest` + `index.html` head links.
 66. Full-domain SEO and discoverability: added `robots.txt` and `sitemap.xml` with production domain sitemap reference for crawler/indexing support.
+67. Full-domain accessibility continuation: hardened accessible labeling for unlabeled icon-only controls via runtime `aria-label` inference pass while preserving global visible focus behavior in `index.html`.
 
 ## In progress
-67. Full-domain accessibility continuation:
-- Accessible labels + visible focus.
+
+68. Full-domain performance continuation:
+
+- Lazy-load 3D scene.
 
 ## Verification checklist for each implemented item
+
 - [ ] No syntax errors.
 - [ ] No runtime console errors.
 - [ ] Keyboard flow works where relevant.
@@ -85,4 +91,5 @@ Always implement top-to-bottom in P0, then P1, then P2.
 - [ ] Checklist status updated in docs/checklist.md.
 
 ## Next immediate implementation target
-Item #67 onward in strict order (remaining full-domain checklist tasks).
+
+Item #68 onward in strict order (remaining full-domain checklist tasks).

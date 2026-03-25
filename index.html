@@ -32,7 +32,10 @@
     <meta property="og:image" content="https://sie-hanamura.vercel.app/miku.png" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Siera Hallig | UX/UI Designer and Web Developer Portfolio" />
+    <meta
+      name="twitter:title"
+      content="Siera Hallig | UX/UI Designer and Web Developer Portfolio"
+    />
     <meta
       name="twitter:description"
       content="Explore UX/UI designs, interactive interfaces, and development projects by Siera Hallig."
@@ -64,7 +67,7 @@
       }
     </script>
     <script type="module" crossorigin src="/assets/index-DZeOwcvB.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/index-Di1ofdRY.css">
+    <link rel="stylesheet" crossorigin href="/assets/index-Di1ofdRY.css" />
     <style>
       :root {
         color-scheme: light;
@@ -128,7 +131,7 @@
 
       a:focus-visible,
       button:focus-visible,
-      [role="button"]:focus-visible,
+      [role='button']:focus-visible,
       [tabindex]:focus-visible {
         outline: 3px solid var(--color-brand);
         outline-offset: 3px;
@@ -188,7 +191,9 @@
         font-size: 0.82rem;
         font-weight: 600;
         text-decoration: none;
-        transition: background-color 0.2s ease, color 0.2s ease;
+        transition:
+          background-color 0.2s ease,
+          color 0.2s ease;
       }
 
       .resume-mirror-link:hover {
@@ -338,18 +343,18 @@
         var previouslyFocusedElement = null;
 
         function ensureButtonBehavior(el) {
-          if (!el || el.dataset.a11yPatched === "1") {
+          if (!el || el.dataset.a11yPatched === '1') {
             return;
           }
 
-          el.dataset.a11yPatched = "1";
-          if (!el.hasAttribute("tabindex")) {
-            el.setAttribute("tabindex", "0");
+          el.dataset.a11yPatched = '1';
+          if (!el.hasAttribute('tabindex')) {
+            el.setAttribute('tabindex', '0');
           }
-          el.setAttribute("role", "button");
+          el.setAttribute('role', 'button');
 
-          el.addEventListener("keydown", function (event) {
-            if (event.key === "Enter" || event.key === " ") {
+          el.addEventListener('keydown', function (event) {
+            if (event.key === 'Enter' || event.key === ' ') {
               event.preventDefault();
               el.click();
             }
@@ -362,31 +367,35 @@
             return;
           }
 
-          var hash = window.location.hash || "#home";
+          var hash = window.location.hash || '#home';
           links.forEach(function (link) {
-            if (link.getAttribute("href") === hash) {
-              link.setAttribute("aria-current", "page");
+            if (link.getAttribute('href') === hash) {
+              link.setAttribute('aria-current', 'page');
             } else {
-              link.removeAttribute("aria-current");
+              link.removeAttribute('aria-current');
             }
           });
         }
 
         function patchInteractiveElements() {
           var scrollDownAnchor = document.querySelector('a img[alt="Scroll Down"]');
-          if (scrollDownAnchor && scrollDownAnchor.parentElement && scrollDownAnchor.parentElement.tagName === "A") {
+          if (
+            scrollDownAnchor &&
+            scrollDownAnchor.parentElement &&
+            scrollDownAnchor.parentElement.tagName === 'A'
+          ) {
             var scrollLink = scrollDownAnchor.parentElement;
-            if (!scrollLink.getAttribute("href")) {
-              scrollLink.setAttribute("href", "#work");
+            if (!scrollLink.getAttribute('href')) {
+              scrollLink.setAttribute('href', '#work');
             }
-            scrollLink.setAttribute("aria-label", "Scroll to portfolio section");
+            scrollLink.setAttribute('aria-label', 'Scroll to portfolio section');
           }
 
-          var clickableCards = Array.from(document.querySelectorAll("div.group.cursor-pointer"));
+          var clickableCards = Array.from(document.querySelectorAll('div.group.cursor-pointer'));
           clickableCards.forEach(function (card) {
-            if (card.querySelector("p") && card.textContent.indexOf("Click to view more") !== -1) {
+            if (card.querySelector('p') && card.textContent.indexOf('Click to view more') !== -1) {
               ensureButtonBehavior(card);
-              card.setAttribute("aria-label", "Open project details");
+              card.setAttribute('aria-label', 'Open project details');
             }
           });
 
@@ -394,73 +403,76 @@
         }
 
         function optimizeImageDelivery() {
-          var images = Array.from(document.querySelectorAll("img"));
+          var images = Array.from(document.querySelectorAll('img'));
           if (!images.length) {
             return;
           }
 
           images.forEach(function (img) {
-            if (img.dataset.imageOptimized === "1") {
+            if (img.dataset.imageOptimized === '1') {
               return;
             }
 
-            var isCritical = !!img.closest("#home, nav, .canvasContainer");
+            var isCritical = !!img.closest('#home, nav, .canvasContainer');
 
             if (isCritical) {
-              if (!img.hasAttribute("loading")) {
-                img.setAttribute("loading", "eager");
+              if (!img.hasAttribute('loading')) {
+                img.setAttribute('loading', 'eager');
               }
-              if (!img.hasAttribute("fetchpriority")) {
-                img.setAttribute("fetchpriority", "high");
+              if (!img.hasAttribute('fetchpriority')) {
+                img.setAttribute('fetchpriority', 'high');
               }
             } else {
-              img.setAttribute("loading", "lazy");
-              img.setAttribute("decoding", "async");
-              img.setAttribute("fetchpriority", "low");
+              img.setAttribute('loading', 'lazy');
+              img.setAttribute('decoding', 'async');
+              img.setAttribute('fetchpriority', 'low');
             }
 
-            if (!img.hasAttribute("sizes")) {
-              if (img.closest(".grid")) {
-                img.setAttribute("sizes", "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw");
-              } else if (img.className.indexOf("w-full") !== -1) {
-                img.setAttribute("sizes", "(max-width: 1024px) 100vw, 80vw");
+            if (!img.hasAttribute('sizes')) {
+              if (img.closest('.grid')) {
+                img.setAttribute(
+                  'sizes',
+                  '(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw'
+                );
+              } else if (img.className.indexOf('w-full') !== -1) {
+                img.setAttribute('sizes', '(max-width: 1024px) 100vw, 80vw');
               }
             }
 
-            img.dataset.imageOptimized = "1";
+            img.dataset.imageOptimized = '1';
           });
         }
 
         function injectTopFoldMessaging() {
-          var homeSection = document.getElementById("home");
+          var homeSection = document.getElementById('home');
           if (!homeSection) {
             return;
           }
 
-          if (homeSection.querySelector(".topfold-message")) {
+          if (homeSection.querySelector('.topfold-message')) {
             return;
           }
 
           var targetContainer =
-            homeSection.querySelector(".heroText") ||
-            homeSection.querySelector("h1") && homeSection.querySelector("h1").parentElement ||
+            homeSection.querySelector('.heroText') ||
+            (homeSection.querySelector('h1') && homeSection.querySelector('h1').parentElement) ||
             homeSection;
 
           if (!targetContainer) {
             return;
           }
 
-          var messageWrap = document.createElement("div");
-          messageWrap.className = "topfold-message";
+          var messageWrap = document.createElement('div');
+          messageWrap.className = 'topfold-message';
 
-          var valueProp = document.createElement("p");
-          valueProp.className = "topfold-value-prop";
+          var valueProp = document.createElement('p');
+          valueProp.className = 'topfold-value-prop';
           valueProp.textContent =
-            "I design and build accessible, performance-focused web experiences that turn ideas into production-ready products.";
+            'I design and build accessible, performance-focused web experiences that turn ideas into production-ready products.';
 
-          var availability = document.createElement("span");
-          availability.className = "availability-chip";
-          availability.textContent = "Available for full-time and freelance work";
+          var availability = document.createElement('span');
+          availability.className = 'availability-chip';
+          availability.textContent = 'Available for full-time and freelance work';
 
           messageWrap.appendChild(valueProp);
           messageWrap.appendChild(availability);
@@ -468,125 +480,122 @@
         }
 
         function injectResumeMirrorLink() {
-          var resumeButton = Array.from(document.querySelectorAll("a")).find(function (link) {
-            return link.textContent && link.textContent.trim() === "Download Resume";
+          var resumeButton = Array.from(document.querySelectorAll('a')).find(function (link) {
+            return link.textContent && link.textContent.trim() === 'Download Resume';
           });
 
           if (!resumeButton || !resumeButton.parentElement) {
             return;
           }
 
-          if (resumeButton.parentElement.querySelector(".resume-mirror-link")) {
+          if (resumeButton.parentElement.querySelector('.resume-mirror-link')) {
             return;
           }
 
-          var mirrorLink = document.createElement("a");
-          mirrorLink.className = "resume-mirror-link";
-          mirrorLink.href = "/resume-mirror.txt";
-          mirrorLink.setAttribute("download", "Siera-Hallig-Resume-Mirror.txt");
-          mirrorLink.textContent = "Backup Resume";
-          mirrorLink.setAttribute("aria-label", "Download backup resume mirror");
+          var mirrorLink = document.createElement('a');
+          mirrorLink.className = 'resume-mirror-link';
+          mirrorLink.href = '/resume-mirror.txt';
+          mirrorLink.setAttribute('download', 'Siera-Hallig-Resume-Mirror.txt');
+          mirrorLink.textContent = 'Backup Resume';
+          mirrorLink.setAttribute('aria-label', 'Download backup resume mirror');
 
           resumeButton.parentElement.appendChild(mirrorLink);
         }
 
         function injectProjectCaseStudyEnhancements() {
           var caseStudyMap = {
-            "MINHS - School Grading System": {
-              status: "Academic",
+            'MINHS - School Grading System': {
+              status: 'Academic',
               problem:
-                "Teachers manually computed and checked grades, which was slow and error-prone during submission periods.",
-              role: "C# Developer and Database Implementer",
+                'Teachers manually computed and checked grades, which was slow and error-prone during submission periods.',
+              role: 'C# Developer and Database Implementer',
               process:
-                "Designed grade computation rules, implemented MySQL-backed storage, and streamlined record retrieval for class sections.",
+                'Designed grade computation rules, implemented MySQL-backed storage, and streamlined record retrieval for class sections.',
               constraints:
-                "Needed to run on school hardware with limited resources and support existing grading policies.",
+                'Needed to run on school hardware with limited resources and support existing grading policies.',
               outcome:
-                "Reduced manual calculation steps and shortened grade preparation turnaround by approximately 40% in internal testing.",
-              timeline: "Academic term project, 6 weeks",
+                'Reduced manual calculation steps and shortened grade preparation turnaround by approximately 40% in internal testing.',
+              timeline: 'Academic term project, 6 weeks',
               responsibilities:
-                "Schema design, grade logic implementation, testing of subject and section workflows.",
+                'Schema design, grade logic implementation, testing of subject and section workflows.',
               learned:
-                "Clear validation rules and predictable data models are critical for education-focused systems.",
-              writeup: "https://github.com/sie-hanamura/MINHS-School-Grading-System",
+                'Clear validation rules and predictable data models are critical for education-focused systems.',
+              writeup: 'https://github.com/sie-hanamura/MINHS-School-Grading-System',
             },
-            "Automated Barangay Clearance System": {
-              status: "Academic",
+            'Automated Barangay Clearance System': {
+              status: 'Academic',
               problem:
-                "Clearance requests were manually transcribed from forms, creating bottlenecks and clerical mistakes.",
-              role: "Systems Developer",
+                'Clearance requests were manually transcribed from forms, creating bottlenecks and clerical mistakes.',
+              role: 'Systems Developer',
               process:
-                "Connected Google Form submissions to the desktop workflow, automated PDF generation, and standardized print output.",
+                'Connected Google Form submissions to the desktop workflow, automated PDF generation, and standardized print output.',
               constraints:
-                "Had to maintain compliance with barangay document format and support unreliable local connectivity.",
+                'Had to maintain compliance with barangay document format and support unreliable local connectivity.',
               outcome:
-                "Improved processing consistency and reduced repeat encoding effort by about 50% for common request flows.",
-              timeline: "Academic team project, 8 weeks",
+                'Improved processing consistency and reduced repeat encoding effort by about 50% for common request flows.',
+              timeline: 'Academic team project, 8 weeks',
               responsibilities:
-                "Data ingestion flow, printable template logic, and test scenarios for edge-case resident records.",
+                'Data ingestion flow, printable template logic, and test scenarios for edge-case resident records.',
               learned:
-                "Automation should preserve familiar staff workflows while reducing repetitive actions.",
-              writeup: "https://github.com/Shibarashii/automated-barangay-clearance-system",
+                'Automation should preserve familiar staff workflows while reducing repetitive actions.',
+              writeup: 'https://github.com/Shibarashii/automated-barangay-clearance-system',
             },
-            "Task Manager App": {
-              status: "Concept",
+            'Task Manager App': {
+              status: 'Concept',
               problem:
-                "Users needed a lightweight way to track tasks without account setup or complex dashboards.",
-              role: "Frontend Developer",
+                'Users needed a lightweight way to track tasks without account setup or complex dashboards.',
+              role: 'Frontend Developer',
               process:
-                "Built a simple add/complete flow with clear visual states and minimal interaction friction.",
-              constraints:
-                "Single-page static implementation with no backend persistence.",
+                'Built a simple add/complete flow with clear visual states and minimal interaction friction.',
+              constraints: 'Single-page static implementation with no backend persistence.',
               outcome:
-                "Delivered a fast, easy-to-understand task flow suitable for quick daily planning.",
-              timeline: "Personal project, 1 week",
-              responsibilities:
-                "UI logic, interaction handling, and basic state management.",
+                'Delivered a fast, easy-to-understand task flow suitable for quick daily planning.',
+              timeline: 'Personal project, 1 week',
+              responsibilities: 'UI logic, interaction handling, and basic state management.',
               learned:
-                "Small productivity tools benefit most from clear hierarchy and near-zero onboarding.",
-              writeup: "https://github.com/sie-hanamura/Task-Manager-App",
+                'Small productivity tools benefit most from clear hierarchy and near-zero onboarding.',
+              writeup: 'https://github.com/sie-hanamura/Task-Manager-App',
             },
-            "Data Analysis Portfolio": {
-              status: "Academic",
+            'Data Analysis Portfolio': {
+              status: 'Academic',
               problem:
-                "Machine learning outputs can be hard to interpret without concise experiment narratives and summaries.",
-              role: "Data Analyst and ML Practitioner",
+                'Machine learning outputs can be hard to interpret without concise experiment narratives and summaries.',
+              role: 'Data Analyst and ML Practitioner',
               process:
-                "Organized notebooks by objective, dataset handling, model training, and result interpretation.",
+                'Organized notebooks by objective, dataset handling, model training, and result interpretation.',
               constraints:
-                "Relied on free cloud notebook resources and assignment-bound timelines.",
+                'Relied on free cloud notebook resources and assignment-bound timelines.',
               outcome:
-                "Produced reproducible model experiments with clearer comparison and reporting structure.",
-              timeline: "Course portfolio, multi-module",
+                'Produced reproducible model experiments with clearer comparison and reporting structure.',
+              timeline: 'Course portfolio, multi-module',
               responsibilities:
-                "Data preparation, model training, evaluation, and documentation of findings.",
-              learned:
-                "Model quality communication matters as much as the model score itself.",
-              writeup: "https://github.com/sie-hanamura/CSEL302_Hallig",
+                'Data preparation, model training, evaluation, and documentation of findings.',
+              learned: 'Model quality communication matters as much as the model score itself.',
+              writeup: 'https://github.com/sie-hanamura/CSEL302_Hallig',
             },
-            "Portfolio Website": {
-              status: "Live",
+            'Portfolio Website': {
+              status: 'Live',
               problem:
-                "A personal brand site needed to present both design and development work in one coherent experience.",
-              role: "UX/UI Designer and Frontend Developer",
+                'A personal brand site needed to present both design and development work in one coherent experience.',
+              role: 'UX/UI Designer and Frontend Developer',
               process:
-                "Designed section architecture, built interactive views in React, and tuned accessibility/performance improvements.",
+                'Designed section architecture, built interactive views in React, and tuned accessibility/performance improvements.',
               constraints:
-                "Compiled-build repository limits source-level refactoring and requires careful production-safe patches.",
+                'Compiled-build repository limits source-level refactoring and requires careful production-safe patches.',
               outcome:
-                "Improved accessibility coverage, media payload size, and conversion path clarity across key sections.",
-              timeline: "Ongoing iterative product",
+                'Improved accessibility coverage, media payload size, and conversion path clarity across key sections.',
+              timeline: 'Ongoing iterative product',
               responsibilities:
-                "Information architecture, frontend implementation, optimization, and QA checks.",
+                'Information architecture, frontend implementation, optimization, and QA checks.',
               learned:
-                "Incremental, verification-first improvements keep a live portfolio stable while quality steadily increases.",
-              writeup: "https://github.com/sie-hanamura/portfolio-website",
+                'Incremental, verification-first improvements keep a live portfolio stable while quality steadily increases.',
+              writeup: 'https://github.com/sie-hanamura/portfolio-website',
             },
           };
 
           var cards = Array.from(document.querySelectorAll('section#work h3'));
           cards.forEach(function (heading) {
-            var title = (heading.textContent || "").trim();
+            var title = (heading.textContent || '').trim();
             var data = caseStudyMap[title];
             if (!data) {
               return;
@@ -688,6 +697,51 @@
           });
         }
 
+        function ensureAccessibleLabelsAndVisibleFocus() {
+          var interactiveElements = Array.from(
+            document.querySelectorAll('a, button, [role="button"], input, textarea, select')
+          );
+
+          interactiveElements.forEach(function (el) {
+            var hasAriaLabel = !!(el.getAttribute('aria-label') || '').trim();
+            var hasAriaLabelledBy = !!(el.getAttribute('aria-labelledby') || '').trim();
+            var hasTitle = !!(el.getAttribute('title') || '').trim();
+            var text = (el.textContent || '').replace(/\s+/g, ' ').trim();
+
+            if (hasAriaLabel || hasAriaLabelledBy || hasTitle || text.length > 0) {
+              return;
+            }
+
+            var inferred = '';
+            if (el.tagName === 'A') {
+              var href = (el.getAttribute('href') || '').trim();
+              if (href.indexOf('mailto:') === 0) {
+                inferred = 'Email link';
+              } else if (href.indexOf('tel:') === 0) {
+                inferred = 'Phone link';
+              } else if (href.indexOf('http') === 0) {
+                inferred = 'External link';
+              } else if (href.indexOf('#') === 0) {
+                inferred = 'Jump link';
+              } else {
+                inferred = 'Link';
+              }
+            } else if (el.tagName === 'BUTTON' || el.getAttribute('role') === 'button') {
+              inferred = 'Button';
+            } else if (
+              el.tagName === 'INPUT' ||
+              el.tagName === 'TEXTAREA' ||
+              el.tagName === 'SELECT'
+            ) {
+              inferred = 'Form field';
+            }
+
+            if (inferred) {
+              el.setAttribute('aria-label', inferred);
+            }
+          });
+        }
+
         function trackPortfolioEvent(eventName, payload) {
           var eventPayload = {
             event: eventName,
@@ -736,7 +790,9 @@
             });
           });
 
-          var contactLinks = document.querySelectorAll('section#contact a[href], section#contact [href]');
+          var contactLinks = document.querySelectorAll(
+            'section#contact a[href], section#contact [href]'
+          );
           contactLinks.forEach(function (el) {
             if (el.dataset.analyticsBound === '1') {
               return;
@@ -793,7 +849,9 @@
         }
 
         function injectLoadingSkeletons() {
-          var heavyImages = document.querySelectorAll('#work img, .canvasContainer img, #services img');
+          var heavyImages = document.querySelectorAll(
+            '#work img, .canvasContainer img, #services img'
+          );
           heavyImages.forEach(function (img) {
             if (img.dataset.skeletonBound === '1') {
               return;
@@ -862,8 +920,8 @@
           var note = document.createElement('p');
           note.className = 'privacy-note';
           note.innerHTML =
-            'This site uses lightweight interaction analytics to improve UX quality (project, resume, and contact events). '
-            + '<a href="/docs/privacy-note.md" target="_blank" rel="noopener noreferrer">Read privacy note</a>.';
+            'This site uses lightweight interaction analytics to improve UX quality (project, resume, and contact events). ' +
+            '<a href="/docs/privacy-note.md" target="_blank" rel="noopener noreferrer">Read privacy note</a>.';
 
           contact.appendChild(note);
         }
@@ -882,7 +940,7 @@
         }
 
         function getActiveModalRoot() {
-          return document.querySelector(".fixed.inset-0.z-40");
+          return document.querySelector('.fixed.inset-0.z-40');
         }
 
         function syncModalFocusState() {
@@ -893,7 +951,7 @@
             previouslyFocusedElement = document.activeElement;
             window.setTimeout(function () {
               var closeButton = modalRoot.querySelector('button[aria-label="Close"]');
-              if (closeButton && typeof closeButton.focus === "function") {
+              if (closeButton && typeof closeButton.focus === 'function') {
                 closeButton.focus();
               }
             }, 0);
@@ -902,13 +960,13 @@
           if (!isModalOpen && wasModalOpen) {
             if (
               previouslyFocusedElement &&
-              typeof previouslyFocusedElement.focus === "function" &&
+              typeof previouslyFocusedElement.focus === 'function' &&
               document.contains(previouslyFocusedElement)
             ) {
               previouslyFocusedElement.focus();
             } else {
-              var skipLink = document.querySelector(".skip-link");
-              if (skipLink && typeof skipLink.focus === "function") {
+              var skipLink = document.querySelector('.skip-link');
+              if (skipLink && typeof skipLink.focus === 'function') {
                 skipLink.focus();
               }
             }
@@ -955,41 +1013,41 @@
         }
 
         function handleGlobalKeyboard(event) {
-          if (event.key === "Escape") {
+          if (event.key === 'Escape') {
             event.preventDefault();
             closeOpenModalWithEscape();
             return;
           }
 
-          if (event.key === "Tab") {
+          if (event.key === 'Tab') {
             trapFocusInModal(event);
           }
         }
 
         function mountCanvasFallback(container, reasonText) {
-          if (!container || container.dataset.fallbackMounted === "1") {
+          if (!container || container.dataset.fallbackMounted === '1') {
             return;
           }
 
-          container.dataset.fallbackMounted = "1";
-          container.innerHTML = "";
+          container.dataset.fallbackMounted = '1';
+          container.innerHTML = '';
 
-          var fallbackWrap = document.createElement("div");
+          var fallbackWrap = document.createElement('div');
           fallbackWrap.setAttribute(
-            "style",
-            "display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:1rem;"
+            'style',
+            'display:flex;flex-direction:column;align-items:center;gap:0.75rem;padding:1rem;'
           );
 
-          var fallbackImg = document.createElement("img");
-          fallbackImg.className = "rm-fallback-image";
-          fallbackImg.src = "/miku.png";
-          fallbackImg.alt = "Hero visual fallback image";
+          var fallbackImg = document.createElement('img');
+          fallbackImg.className = 'rm-fallback-image';
+          fallbackImg.src = '/miku.png';
+          fallbackImg.alt = 'Hero visual fallback image';
 
-          var fallbackText = document.createElement("p");
+          var fallbackText = document.createElement('p');
           fallbackText.textContent = reasonText;
           fallbackText.setAttribute(
-            "style",
-            "font-size:0.875rem;color:#374151;text-align:center;max-width:32rem;"
+            'style',
+            'font-size:0.875rem;color:#374151;text-align:center;max-width:32rem;'
           );
 
           fallbackWrap.appendChild(fallbackImg);
@@ -999,8 +1057,8 @@
 
         function applyReducedMotionAndFailureFallback() {
           var prefersReducedMotion =
-            window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-          var canvasContainer = document.querySelector(".canvasContainer");
+            window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+          var canvasContainer = document.querySelector('.canvasContainer');
 
           if (!canvasContainer) {
             return;
@@ -1009,17 +1067,17 @@
           if (prefersReducedMotion) {
             mountCanvasFallback(
               canvasContainer,
-              "3D animation is reduced to respect your motion preferences."
+              '3D animation is reduced to respect your motion preferences.'
             );
             return;
           }
 
           window.setTimeout(function () {
-            var hasCanvas = !!canvasContainer.querySelector("canvas");
+            var hasCanvas = !!canvasContainer.querySelector('canvas');
             if (!hasCanvas) {
               mountCanvasFallback(
                 canvasContainer,
-                "The 3D model could not be loaded right now. Showing a fallback visual instead."
+                'The 3D model could not be loaded right now. Showing a fallback visual instead.'
               );
             }
           }, 7000);
@@ -1033,6 +1091,7 @@
           injectProjectCaseStudyEnhancements();
           ensureHeadingHierarchy();
           improveAltTextQuality();
+          ensureAccessibleLabelsAndVisibleFocus();
           bindAnalyticsFunnelEvents();
           handleMediaAndNetworkFailures();
           injectLoadingSkeletons();
@@ -1047,9 +1106,9 @@
           attributes: false,
         });
 
-        window.addEventListener("hashchange", setAriaCurrentFromHash);
-        window.addEventListener("keydown", handleGlobalKeyboard);
-        window.addEventListener("load", function () {
+        window.addEventListener('hashchange', setAriaCurrentFromHash);
+        window.addEventListener('keydown', handleGlobalKeyboard);
+        window.addEventListener('load', function () {
           patchInteractiveElements();
           optimizeImageDelivery();
           injectTopFoldMessaging();
@@ -1057,6 +1116,7 @@
           injectProjectCaseStudyEnhancements();
           ensureHeadingHierarchy();
           improveAltTextQuality();
+          ensureAccessibleLabelsAndVisibleFocus();
           bindAnalyticsFunnelEvents();
           handleMediaAndNetworkFailures();
           injectLoadingSkeletons();

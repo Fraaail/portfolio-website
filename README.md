@@ -10,15 +10,27 @@ To preview locally:
 
 1. Open the project root.
 2. Start a static server, for example:
-	 - `python3 -m http.server 4173`
+   - `python3 -m http.server 4173`
 3. Open `http://localhost:4173`.
 
 ## Development Notes
 
 - Most active improvements are currently applied at the entry layer (`index.html`) and compiled bundle integration points.
 - Roadmap execution order is tracked in:
-	- `docs/checklist.md`
-	- `project_overview/checklists/implementation_log.md`
+  - `docs/checklist.md`
+  - `project_overview/checklists/implementation_log.md`
+
+## Pre-commit Hook Setup
+
+Configure local Git pre-commit checks:
+
+1. Run `bash scripts/setup-git-hooks.sh`
+
+The hook runs on staged files and enforces:
+
+- `markdownlint-cli2` for Markdown files
+- `prettier --check` for maintained text/config files (`.md`, `.html`, `.json`, `.yml`, `.yaml`)
+- `node --check` for `visual-regression/check.js` when staged
 
 ## Build and Deploy
 

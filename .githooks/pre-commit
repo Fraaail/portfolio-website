@@ -1,0 +1,55 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+staged_files=()
+while IFS= read -r file; do
+  staged_files+=("$file")
+done < <(git diff --cached --name-only --diff-filter=ACMR)
+
+if [[ ${#staged_files[@]} -eq 0 ]]; then
+  exit 0
+fi
+
+md_files=()
+prettier_files=()
+node_check_files=()
+
+for file in "${staged_files[@]}"; do
+  # Skip generated or external asset trees from local style checks.
+  if [[ "$file" == assets/* || "$file" == pc_portfolio/* || "$file" == portfolio_pc/* || "$file" == case-studies/*.pdf ]]; then
+    continue
+  fi
+
+  if [[ "$file" == *.md ]]; then
+    md_files+=("$file")
+  fi
+
+  case "$file" in
+    *.md|*.html|*.json|*.yml|*.yaml)
+      prettier_files+=("$file")
+      ;;
+  esac
+
+  if [[ "$file" == "visual-regression/check.js" ]]; then
+    node_check_files+=("$file")
+  fi
+done
+
+if [[ ${#md_files[@]} -gt 0 ]]; then
+  echo "[pre-commit] markdownlint"
+  npx --yes markdownlint-cli2 "${md_files[@]}"
+fi
+
+if [[ ${#prettier_files[@]} -gt 0 ]]; then
+  echo "[pre-commit] prettier --check"
+  npx --yes prettier --check "${prettier_files[@]}"
+fi
+
+if [[ ${#node_check_files[@]} -gt 0 ]]; then
+  echo "[pre-commit] node --check"
+  for file in "${node_check_files[@]}"; do
+    node --check "$file"
+  done
+fi
+
+echo "[pre-commit] all checks passed"
