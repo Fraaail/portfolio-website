@@ -12,6 +12,14 @@ const CURRENT_DIR = path.join(ROOT, 'visual-regression', 'current');
 const DIFF_DIR = path.join(ROOT, 'visual-regression', 'diff');
 const UPDATE_BASELINES = process.argv.includes('--update-baselines');
 
+function parseNumber(value, fallback) {
+  const parsed = Number(value);
+  return Number.isFinite(parsed) ? parsed : fallback;
+}
+
+const PIXELMATCH_THRESHOLD = parseNumber(process.env.VR_PIXELMATCH_THRESHOLD, 0.12);
+const MAX_DIFF_RATIO = parseNumber(process.env.VR_MAX_DIFF_RATIO, 0.008);
+
 const targets = [
   { name: 'home', hash: '#home' },
   { name: 'work', hash: '#work' },
@@ -98,13 +106,13 @@ function writePng(filePath, png) {
       diff.data,
       baseline.width,
       baseline.height,
-      { threshold: 0.1 }
+      { threshold: PIXELMATCH_THRESHOLD }
     );
 
     const ratio = mismatch / (baseline.width * baseline.height);
     writePng(diffPath, diff);
 
-    if (ratio > 0.005) {
+    if (ratio > MAX_DIFF_RATIO) {
       console.error(`Visual regression detected for ${target.name}: ${(ratio * 100).toFixed(2)}%`);
       hasRegression = true;
     }

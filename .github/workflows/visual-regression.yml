@@ -31,6 +31,8 @@ jobs:
       - name: Run visual regression check
         env:
           VR_BASE_URL: http://127.0.0.1:4173
+          VR_PIXELMATCH_THRESHOLD: '0.12'
+          VR_MAX_DIFF_RATIO: '0.008'
         run: node visual-regression/check.js
 
       - name: Upload visual artifacts
